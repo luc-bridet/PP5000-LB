@@ -490,7 +490,7 @@ for value in range(1, 7):
 #%% Sidebyside comparison better
 
 # theoretical (fair d6)
-theoretical = [1/6 for _ in range(6)]
+theoretical = [1/6 for _ in range(1, 7)]
 
 # empirical n = 20
 freq_20 = []
@@ -635,7 +635,7 @@ print(df_rounded)
 
 values = list(range(1, 7))
 # theoretical (fair d6)
-theoretical = [1/6 for _ in range(6)]
+theoretical = [1/6 for _ in range(1, 7)]
 
 def compute_frequencies(n):
     results = n_rolls_d6(n)
@@ -765,13 +765,32 @@ def generate_4d6_series(n_observations):
     return results
 
 
+## Note: The function `generate_4d6_series` repeatedly calls the function
+## `roll_4d6`.
+
 n_observations_4d6 = 800
 
 rolls_4d6 = generate_4d6_series(n_observations_4d6)
 
 print(rolls_4d6[:10])
 
+## It's always a good idea to print a small amount of your dataset and/or
+## visually inspect it.
+## It's also a good idea to try to visualize your variables, typically with
+## histograms or summary tables.
 
+
+
+frequencies_4d6 = [
+    rolls_4d6.count(total)
+    for total in range(4, 25)
+]
+
+plt.bar(range(4, 25), frequencies_4d6)
+plt.xlabel("Sum of four d6 rolls")
+plt.ylabel("Frequency")
+plt.xticks(range(4, 25))
+plt.show()
 
 
 #%% Mean
