@@ -841,7 +841,9 @@ for value in rolls_4d6:
     diff = value - mean_4d6
     sq_diffs_4d6.append(diff**2)
 
-variance_4d6 = sum(sq_diffs_4d6) / n_observations_4d6
+variance_4d6 = sum(sq_diffs_4d6) / (n_observations_4d6-1)
+## we divide by (n-1) because <stats reasons>, 
+## see a stats textbook on "sample variance"
 std_4d6 = variance_4d6 ** 0.5
 
 print(variance_4d6)
@@ -1193,9 +1195,6 @@ for i in range(6): ## draw 6 samples (6 simulations)
     max_height = max(freqs_unknown)
     y_max = 1.2 * max_height
     ax.set_ylim(0, y_max)
-
-    # store result
-    results.append("rigged" if is_rigged else "fair")
 
 plt.tight_layout()
 plt.show()
