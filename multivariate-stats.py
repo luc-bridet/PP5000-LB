@@ -1140,8 +1140,8 @@ plt.close()
 
 regression_results_table = pd.DataFrame(
     index=[
-        "const_coef",
-        "const_P>|t|",
+        "Intercept_coef",
+        "Intercept_P>|t|",
         "",          #### Blank rows make the table more readable
         "R9d8_coef",
         "R9d8_P>|t|",
