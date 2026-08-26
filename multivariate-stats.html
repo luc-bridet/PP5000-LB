@@ -166,7 +166,7 @@ window.Quarto = {
 <li><code>purple_9d8 = R9d8 + B9d8</code></li>
 <li><code>orange_9d8 = R9d8 + Y9d8</code></li>
 </ul>
-<div id="c4c78677" class="cell" data-execution_count="1">
+<div id="8a5f236f" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -224,7 +224,7 @@ window.Quarto = {
 <section id="marginal-distributions" class="level2">
 <h2 class="anchored" data-anchor-id="marginal-distributions">Marginal distributions</h2>
 <p>The next figure displays the distribution of each variable separately.</p>
-<div id="115ccd4a" class="cell" data-execution_count="2">
+<div id="f2c1e2c8" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="dv">5</span>,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>,</span>
@@ -302,7 +302,7 @@ max     55.000000   63.000000   57.000000  109.000000  109.000000</code></pre>
 <li><code>R9d8</code> and <code>orange_9d8</code></li>
 <li><code>purple_9d8</code> and <code>orange_9d8</code></li>
 </ul>
-<div id="5a858c25" class="cell" data-execution_count="3">
+<div id="7cbebfdd" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="dv">3</span>,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>,</span>
@@ -384,7 +384,7 @@ max     55.000000   63.000000   57.000000  109.000000  109.000000</code></pre>
 </ul>
 <p>All other variables are hidden.</p>
 <p>The dataframe below contains exactly that variable.</p>
-<div id="0727749b" class="cell" data-execution_count="4">
+<div id="40f4ec14" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df_orange_only <span class="op">=</span> (</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    df_RBY_9d8[</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        [<span class="st">"orange_9d8"</span>]</span>
@@ -402,7 +402,7 @@ max     55.000000   63.000000   57.000000  109.000000  109.000000</code></pre>
 </div>
 </div>
 <p>The histogram below displays the distribution of <code>orange_9d8</code>. Without access to any other variables, a natural prediction is the sample average of <code>orange_9d8</code>. The vertical line indicates the sample average.</p>
-<div id="6b8ce181" class="cell" data-execution_count="5">
+<div id="1727ebf7" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>orange_9d8_mean <span class="op">=</span> (</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    df_orange_only[<span class="st">"orange_9d8"</span>]</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    .mean()</span>
@@ -455,7 +455,7 @@ max     55.000000   63.000000   57.000000  109.000000  109.000000</code></pre>
 </ul>
 <p>The remaining variables are hidden.</p>
 <p>The dataframe below contains exactly those variables.</p>
-<div id="1737e3f2" class="cell" data-execution_count="6">
+<div id="1cb78f79" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df_B <span class="op">=</span> (</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    df_RBY_9d8[</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        [</span>
@@ -476,7 +476,7 @@ max     55.000000   63.000000   57.000000  109.000000  109.000000</code></pre>
 </div>
 </div>
 <p>The scatterplot below displays all observed pairs of values.</p>
-<div id="636379a4" class="cell" data-execution_count="7">
+<div id="2dc96d07" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>))</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(</span>
@@ -501,7 +501,7 @@ max     55.000000   63.000000   57.000000  109.000000  109.000000</code></pre>
 </div>
 </div>
 <p>We now compute the line of best fit relating <code>orange_9d8</code> to <code>B9d8</code>. For that we load the <code>statsmodels.api</code> library</p>
-<div id="f2b41fa4" class="cell" data-execution_count="8">
+<div id="0da2bec3" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>results_B <span class="op">=</span> smf.ols(</span>
@@ -517,7 +517,7 @@ Dep. Variable:             orange_9d8   R-squared:                       0.004
 Model:                            OLS   Adj. R-squared:                 -0.003
 Method:                 Least Squares   F-statistic:                    0.5542
 Date:                Wed, 26 Aug 2026   Prob (F-statistic):              0.458
-Time:                        21:19:36   Log-Likelihood:                -546.46
+Time:                        21:24:53   Log-Likelihood:                -546.46
 No. Observations:                 150   AIC:                             1097.
 Df Residuals:                     148   BIC:                             1103.
 Df Model:                           1                                         
@@ -548,7 +548,7 @@ Notes:
 <li>additional diagnostics</li>
 </ul>
 <p>The next figure displays the scatterplot together with the fitted line.</p>
-<div id="cdfdc914" class="cell" data-execution_count="9">
+<div id="2746a387" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>intercept_B <span class="op">=</span> (</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    results_B.params[<span class="st">"Intercept"</span>]</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>)</span>
@@ -608,7 +608,7 @@ Notes:
 </ul>
 <p>The remaining variables are hidden.</p>
 <p>The dataframe below contains exactly those variables.</p>
-<div id="4dac4f92" class="cell" data-execution_count="10">
+<div id="7fa40bee" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_R <span class="op">=</span> (</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    df_RBY_9d8[</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>        [</span>
@@ -629,7 +629,7 @@ Notes:
 </div>
 </div>
 <p>The scatterplot below displays all observed pairs of values.</p>
-<div id="9d7d781b" class="cell" data-execution_count="11">
+<div id="1584878d" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>))</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(</span>
@@ -654,7 +654,7 @@ Notes:
 </div>
 </div>
 <p>We now compute the line of best fit relating <code>orange_9d8</code> to <code>R9d8</code>.</p>
-<div id="d654380a" class="cell" data-execution_count="12">
+<div id="dab70c4c" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>results_R <span class="op">=</span> smf.ols(</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"orange_9d8 ~ R9d8"</span>,</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df_R</span>
@@ -668,7 +668,7 @@ Dep. Variable:             orange_9d8   R-squared:                       0.461
 Model:                            OLS   Adj. R-squared:                  0.457
 Method:                 Least Squares   F-statistic:                     126.5
 Date:                Wed, 26 Aug 2026   Prob (F-statistic):           1.36e-21
-Time:                        21:19:36   Log-Likelihood:                -500.43
+Time:                        21:24:53   Log-Likelihood:                -500.43
 No. Observations:                 150   AIC:                             1005.
 Df Residuals:                     148   BIC:                             1011.
 Df Model:                           1                                         
@@ -690,7 +690,7 @@ Notes:
 </div>
 </div>
 <p>The next figure displays the scatterplot together with the fitted line.</p>
-<div id="b830c5e7" class="cell" data-execution_count="13">
+<div id="868d62b8" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>intercept_R <span class="op">=</span> (</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    results_R.params[<span class="st">"Intercept"</span>]</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>)</span>
@@ -750,7 +750,7 @@ Notes:
 </ul>
 <p>The remaining variables are hidden.</p>
 <p>The dataframe below contains exactly those variables.</p>
-<div id="6966766e" class="cell" data-execution_count="14">
+<div id="eba722e4" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df_purple <span class="op">=</span> (</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    df_RBY_9d8[</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>        [</span>
@@ -771,7 +771,7 @@ Notes:
 </div>
 </div>
 <p>The scatterplot below displays all observed pairs of values.</p>
-<div id="59d5f794" class="cell" data-execution_count="15">
+<div id="dc201aa5" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>))</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(</span>
@@ -796,7 +796,7 @@ Notes:
 </div>
 </div>
 <p>We now compute the line of best fit relating <code>orange_9d8</code> to <code>purple_9d8</code>.</p>
-<div id="70afed53" class="cell" data-execution_count="16">
+<div id="094bae37" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>results_purple <span class="op">=</span> smf.ols(</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"orange_9d8 ~ purple_9d8"</span>,</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df_purple</span>
@@ -810,7 +810,7 @@ Dep. Variable:             orange_9d8   R-squared:                       0.212
 Model:                            OLS   Adj. R-squared:                  0.206
 Method:                 Least Squares   F-statistic:                     39.72
 Date:                Wed, 26 Aug 2026   Prob (F-statistic):           3.18e-09
-Time:                        21:19:37   Log-Likelihood:                -528.91
+Time:                        21:24:54   Log-Likelihood:                -528.91
 No. Observations:                 150   AIC:                             1062.
 Df Residuals:                     148   BIC:                             1068.
 Df Model:                           1                                         
@@ -832,7 +832,7 @@ Notes:
 </div>
 </div>
 <p>The next figure displays the scatterplot together with the fitted line.</p>
-<div id="d7f8cd87" class="cell" data-execution_count="17">
+<div id="481a499f" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>intercept_purple <span class="op">=</span> (</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    results_purple.params[<span class="st">"Intercept"</span>]</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>)</span>
@@ -891,7 +891,7 @@ Notes:
 <p>This coefficient is the intercept of the regression line.</p>
 <p>The intercept is the predicted value of <code>orange_9d8</code> when the predictor equals zero.</p>
 <p>To see where this value appears on the graph, we redraw the scatterplot and force the horizontal axis to include zero.</p>
-<div id="38a01521" class="cell" data-execution_count="18">
+<div id="b245a695" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>))</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(</span>
@@ -964,7 +964,7 @@ Notes:
 <h2 class="anchored" data-anchor-id="off-ramp-centering-the-predictor">Off-ramp: Centering the predictor</h2>
 <p>The meaning of the intercept depends on how the predictor is measured.</p>
 <p>We now create a centered version of <code>purple_9d8</code> by subtracting its sample mean.</p>
-<div id="53bd2d32" class="cell" data-execution_count="19">
+<div id="229ebeca" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>purple_9d8_mean <span class="op">=</span> (</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    df_RBY_9d8[<span class="st">"purple_9d8"</span>]</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    .mean()</span>
@@ -1004,14 +1004,14 @@ Notes:
 <p><code>purple_9d8_centered = 0</code></p>
 <p>corresponds to an observation whose value of <code>purple_9d8</code> equals the sample mean.</p>
 <p>We now rerun the regression using the centered predictor.</p>
-<div id="8fed284c" class="cell" data-execution_count="20">
+<div id="019c8093" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>results_centered <span class="op">=</span> smf.ols(</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"orange_9d8 ~ purple_9d8_centered"</span>,</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df_RBY_9d8</span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>).fit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The next figure displays the data in the original <code>purple_9d8</code> scale together with the fitted line from the centered regression.</p>
-<div id="b4a1779b" class="cell" data-execution_count="21">
+<div id="d10ca74e" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>centercept <span class="op">=</span> (</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    results_centered.params[<span class="st">"Intercept"</span>]</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>)</span>
@@ -1107,7 +1107,7 @@ Notes:
 <p>The black point has coordinates:</p>
 <p><code>(sample mean of purple_9d8, Intercept)</code></p>
 <p>We now print the regression summary.</p>
-<div id="9be4455f" class="cell" data-execution_count="22">
+<div id="067dfee2" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    results_centered.summary()</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1118,7 +1118,7 @@ Dep. Variable:             orange_9d8   R-squared:                       0.212
 Model:                            OLS   Adj. R-squared:                  0.206
 Method:                 Least Squares   F-statistic:                     39.72
 Date:                Wed, 26 Aug 2026   Prob (F-statistic):           3.18e-09
-Time:                        21:19:37   Log-Likelihood:                -528.91
+Time:                        21:24:54   Log-Likelihood:                -528.91
 No. Observations:                 150   AIC:                             1062.
 Df Residuals:                     148   BIC:                             1068.
 Df Model:                           1                                         
@@ -1173,7 +1173,7 @@ Notes:
 </div>
 <p>The fitted values are the values predicted by the regression line.</p>
 <p>They are computed directly from the estimated intercept and slope.</p>
-<div id="03e7b10f" class="cell" data-execution_count="23">
+<div id="0035f62d" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>df_RBY_9d8[<span class="st">"orange_9d8_predicted"</span>] <span class="op">=</span> (</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    results_purple.fittedvalues</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>)</span>
@@ -1205,7 +1205,7 @@ Notes:
 <p>The fitted values lie on the regression line.</p>
 <p>For each observation, the residual is defined as:</p>
 <p><code>residual = observed value - fitted value</code></p>
-<div id="31c25000" class="cell" data-execution_count="24">
+<div id="bb4d236f" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>df_RBY_9d8[<span class="st">"orange_9d8_residual"</span>] <span class="op">=</span> (</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    df_RBY_9d8[<span class="st">"orange_9d8"</span>]</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span></span>
@@ -1245,7 +1245,7 @@ Notes:
 <p>Every observation now has both a prediction and an associated prediction error.</p>
 <p>The residual for an observation is the vertical distance between the observed point and the fitted line.</p>
 <p>The graph below displays a subset of residuals.</p>
-<div id="bac1161b" class="cell" data-execution_count="25">
+<div id="16fc7cbb" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>))</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(</span>
@@ -1291,7 +1291,7 @@ Notes:
 <p>The regression line is computed using Ordinary Least Squares (OLS).</p>
 <p>OLS chooses the intercept and slope that minimize the sum of squared residuals.</p>
 <p>We can compute that quantity directly from the residuals.</p>
-<div id="ec41cb28" class="cell" data-execution_count="26">
+<div id="26e32fbc" class="cell" data-execution_count="26">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>SSR <span class="op">=</span> (</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    df_RBY_9d8[<span class="st">"orange_9d8_residual"</span>]<span class="op">**</span><span class="dv">2</span></span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>).<span class="bu">sum</span>()</span>
@@ -1324,7 +1324,7 @@ Notes:
 </div>
 <p>The residuals can be plotted against the fitted values produced by the regression.</p>
 <p>The horizontal line corresponds to a residual equal to zero.</p>
-<div id="74617bfe" class="cell" data-execution_count="27">
+<div id="359ccc6d" class="cell" data-execution_count="27">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>))</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(</span>
@@ -1360,7 +1360,7 @@ Notes:
 <section id="residuals-versus-purple_9d8" class="level2">
 <h2 class="anchored" data-anchor-id="residuals-versus-purple_9d8">Residuals versus purple_9d8</h2>
 <p>The residuals can also be plotted against the predictor used in the regression.</p>
-<div id="ead111b2" class="cell" data-execution_count="28">
+<div id="e52bc074" class="cell" data-execution_count="28">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>))</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(</span>
@@ -1414,7 +1414,7 @@ Notes:
 <p>The regression line is one way of summarizing the relationship between two variables.</p>
 <p>Another approach is to compute conditional means.</p>
 <p>For each observed value of <code>purple_9d8</code>, we compute the average value of <code>orange_9d8</code>.</p>
-<div id="258d4ed2" class="cell" data-execution_count="29">
+<div id="1e583461" class="cell" data-execution_count="29">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>conditional_means <span class="op">=</span> (</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>    df_RBY_9d8</span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    .groupby(<span class="st">"purple_9d8"</span>)</span>
@@ -1442,7 +1442,7 @@ Notes:
 </ul>
 <p>Each row summarizes a subset of observations from the dataset.</p>
 <p>The conditional means can be added to the scatterplot.</p>
-<div id="c9e1df1f" class="cell" data-execution_count="30">
+<div id="a2ca7dda" class="cell" data-execution_count="30">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>))</span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(</span>
@@ -1484,7 +1484,7 @@ Notes:
 <li>conditional means</li>
 <li>regression line</li>
 </ul>
-<div id="3c4c9e07" class="cell" data-execution_count="31">
+<div id="6ea3cae5" class="cell" data-execution_count="31">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>))</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(</span>
@@ -1561,7 +1561,7 @@ Notes:
 <section id="initializing-the-regression-results-table-and-appendix" class="level2">
 <h2 class="anchored" data-anchor-id="initializing-the-regression-results-table-and-appendix">Initializing the regression results table and appendix</h2>
 <p>The rows of the table correspond to quantities reported by regression summaries. The columns correspond to different regression specifications. A helper function adds the results from a regression to a new column.</p>
-<div id="ac734b7e" class="cell" data-execution_count="32">
+<div id="90a1b614" class="cell" data-execution_count="32">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>regression_results_table <span class="op">=</span> pd.DataFrame(</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>[</span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Intercept_coef"</span>,</span>
@@ -1607,7 +1607,7 @@ Notes:
 <span id="cb48-43"><a href="#cb48-43" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We begin by adding existing regression results to the table.</p>
-<div id="dde338da" class="cell" data-execution_count="33">
+<div id="e87e2239" class="cell" data-execution_count="33">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>add_regression_to_table(</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>    regression_results_table,</span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"B"</span>,</span>
@@ -1650,7 +1650,7 @@ No. Observations   150.0   150.0   150.0</code></pre>
 <section id="multiple-predictors" class="level2">
 <h2 class="anchored" data-anchor-id="multiple-predictors">Multiple predictors</h2>
 <p>We now add <code>B9d8</code> to the regression that previously used only <code>R9d8</code>.</p>
-<div id="f6d2d1ff" class="cell" data-execution_count="34">
+<div id="feddb55b" class="cell" data-execution_count="34">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>results_RB <span class="op">=</span> smf.ols(</span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"orange_9d8 ~ R9d8 + B9d8"</span>,</span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df_RBY_9d8</span>
@@ -1682,7 +1682,7 @@ Adj. R-squared    -0.003   0.457   0.206  0.453
 No. Observations   150.0   150.0   150.0  150.0</code></pre>
 </div>
 </div>
-<div id="18c3d0f4" class="cell" data-execution_count="35">
+<div id="3f9a71e6" class="cell" data-execution_count="35">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>results_purple_R <span class="op">=</span> smf.ols(</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"orange_9d8 ~ purple_9d8 + R9d8"</span>,</span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df_RBY_9d8</span>
@@ -1714,7 +1714,7 @@ Adj. R-squared    -0.003   0.457   0.206  0.453    0.453
 No. Observations   150.0   150.0   150.0  150.0    150.0</code></pre>
 </div>
 </div>
-<div id="ee64e885" class="cell" data-execution_count="36">
+<div id="a1653382" class="cell" data-execution_count="36">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>results_purple_B <span class="op">=</span> smf.ols(</span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"orange_9d8 ~ purple_9d8 + B9d8"</span>,</span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df_RBY_9d8</span>
@@ -1749,7 +1749,7 @@ No. Observations   150.0   150.0   150.0  150.0    150.0    150.0</code></pre>
 </div>
 <p>The table provides a compact summary of the regressions estimated so far.</p>
 <p>The complete regression summaries are gathered as an appendix. There is sometimes important information contained in them (see later section on multicollinearity).</p>
-<div id="8f19f183" class="cell" data-execution_count="37">
+<div id="a45dbec3" class="cell" data-execution_count="37">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> column_name, regression_summary <span class="kw">in</span> regression_summaries.items():</span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Regression summary for column </span><span class="sc">{</span>column_name<span class="sc">}</span><span class="ss">:"</span>)</span>
 <span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(regression_summary)</span>
@@ -1762,7 +1762,7 @@ Dep. Variable:             orange_9d8   R-squared:                       0.004
 Model:                            OLS   Adj. R-squared:                 -0.003
 Method:                 Least Squares   F-statistic:                    0.5542
 Date:                Wed, 26 Aug 2026   Prob (F-statistic):              0.458
-Time:                        21:19:38   Log-Likelihood:                -546.46
+Time:                        21:24:55   Log-Likelihood:                -546.46
 No. Observations:                 150   AIC:                             1097.
 Df Residuals:                     148   BIC:                             1103.
 Df Model:                           1                                         
@@ -1791,7 +1791,7 @@ Dep. Variable:             orange_9d8   R-squared:                       0.461
 Model:                            OLS   Adj. R-squared:                  0.457
 Method:                 Least Squares   F-statistic:                     126.5
 Date:                Wed, 26 Aug 2026   Prob (F-statistic):           1.36e-21
-Time:                        21:19:38   Log-Likelihood:                -500.43
+Time:                        21:24:55   Log-Likelihood:                -500.43
 No. Observations:                 150   AIC:                             1005.
 Df Residuals:                     148   BIC:                             1011.
 Df Model:                           1                                         
@@ -1820,7 +1820,7 @@ Dep. Variable:             orange_9d8   R-squared:                       0.212
 Model:                            OLS   Adj. R-squared:                  0.206
 Method:                 Least Squares   F-statistic:                     39.72
 Date:                Wed, 26 Aug 2026   Prob (F-statistic):           3.18e-09
-Time:                        21:19:38   Log-Likelihood:                -528.91
+Time:                        21:24:55   Log-Likelihood:                -528.91
 No. Observations:                 150   AIC:                             1062.
 Df Residuals:                     148   BIC:                             1068.
 Df Model:                           1                                         
@@ -1849,7 +1849,7 @@ Dep. Variable:             orange_9d8   R-squared:                       0.461
 Model:                            OLS   Adj. R-squared:                  0.453
 Method:                 Least Squares   F-statistic:                     62.81
 Date:                Wed, 26 Aug 2026   Prob (F-statistic):           1.92e-20
-Time:                        21:19:38   Log-Likelihood:                -500.42
+Time:                        21:24:55   Log-Likelihood:                -500.42
 No. Observations:                 150   AIC:                             1007.
 Df Residuals:                     147   BIC:                             1016.
 Df Model:                           2                                         
@@ -1879,7 +1879,7 @@ Dep. Variable:             orange_9d8   R-squared:                       0.461
 Model:                            OLS   Adj. R-squared:                  0.453
 Method:                 Least Squares   F-statistic:                     62.81
 Date:                Wed, 26 Aug 2026   Prob (F-statistic):           1.92e-20
-Time:                        21:19:38   Log-Likelihood:                -500.42
+Time:                        21:24:55   Log-Likelihood:                -500.42
 No. Observations:                 150   AIC:                             1007.
 Df Residuals:                     147   BIC:                             1016.
 Df Model:                           2                                         
@@ -1909,7 +1909,7 @@ Dep. Variable:             orange_9d8   R-squared:                       0.461
 Model:                            OLS   Adj. R-squared:                  0.453
 Method:                 Least Squares   F-statistic:                     62.81
 Date:                Wed, 26 Aug 2026   Prob (F-statistic):           1.92e-20
-Time:                        21:19:38   Log-Likelihood:                -500.42
+Time:                        21:24:55   Log-Likelihood:                -500.42
 No. Observations:                 150   AIC:                             1007.
 Df Residuals:                     147   BIC:                             1016.
 Df Model:                           2                                         
@@ -1954,7 +1954,7 @@ Notes:
 </div>
 </div>
 <p>Correlation and covariance provide numerical summaries of pairwise relationships between variables. They can be computed automatically by pandas dataframe:</p>
-<div id="d57e9d65" class="cell" data-execution_count="38">
+<div id="a14922e1" class="cell" data-execution_count="38">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>covariance_matrix <span class="op">=</span> (</span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>    df_RBY_9d8[</span>
 <span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>        [</span>
@@ -1977,7 +1977,7 @@ orange_9d8  41.577271  -3.746756   37.830515   86.378345</code></pre>
 </div>
 </div>
 <p>The covariance matrix contains one covariance value for each pair of variables. Covariance depends on the scale of measurement, so covariance values are often more difficult to compare across variables.</p>
-<div id="d9c5e723" class="cell" data-execution_count="39">
+<div id="c5894a47" class="cell" data-execution_count="39">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>correlation_matrix <span class="op">=</span> (</span>
 <span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>    df_RBY_9d8[</span>
 <span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>        [</span>
@@ -2036,7 +2036,7 @@ orange_9d8  0.678783 -0.061080    0.459995    1.000000</code></pre>
 <ul>
 <li><code>orange_9d8</code></li>
 </ul>
-<div id="8d397ae2" class="cell" data-execution_count="40">
+<div id="d2989709" class="cell" data-execution_count="40">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>results_collinear <span class="op">=</span> smf.ols(</span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"orange_9d8 ~ purple_9d8 + R9d8 + B9d8"</span>,</span>
 <span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df_RBY_9d8</span>
@@ -2050,7 +2050,7 @@ Dep. Variable:             orange_9d8   R-squared:                       0.461
 Model:                            OLS   Adj. R-squared:                  0.453
 Method:                 Least Squares   F-statistic:                     62.81
 Date:                Wed, 26 Aug 2026   Prob (F-statistic):           1.92e-20
-Time:                        21:19:38   Log-Likelihood:                -500.42
+Time:                        21:24:55   Log-Likelihood:                -500.42
 No. Observations:                 150   AIC:                             1007.
 Df Residuals:                     147   BIC:                             1016.
 Df Model:                           2                                         
@@ -2104,7 +2104,7 @@ strong multicollinearity problems or that the design matrix is singular.</code><
 <p>orange_9d8 = R9d8 + Y9d8</p>
 <p>The variable B9d8 is generated independently from R9d8 and Y9d8 and therefore has no effect on orange_9d8. Its true population coefficient is exactly zero.</p>
 <p>Nevertheless, every sample is different. Sampling variation produces different coefficient estimates, t statistics, p-values, and confidence intervals. So it is possible, purely through randomness, for an estimated regression to feature a significant coefficient on B9d8. We can observe this via simulation.</p>
-<div id="9f2c8a0e" class="cell" data-execution_count="41">
+<div id="20c19175" class="cell" data-execution_count="41">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>n_replications <span class="op">=</span> <span class="dv">1000</span></span>
 <span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>n_observations <span class="op">=</span> <span class="dv">150</span></span>
 <span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>significance_threshold<span class="op">=</span><span class="fl">0.05</span></span>
@@ -2172,7 +2172,7 @@ strong multicollinearity problems or that the design matrix is singular.</code><
 <section id="distribution-of-coefficient-estimates" class="level2">
 <h2 class="anchored" data-anchor-id="distribution-of-coefficient-estimates">Distribution of coefficient estimates</h2>
 <p>The histogram below shows the sampling distribution of the estimated B9d8 coefficient.</p>
-<div id="f5da2dd2" class="cell" data-execution_count="42">
+<div id="0af723a9" class="cell" data-execution_count="42">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">6</span>))</span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>plt.hist(</span>
@@ -2205,7 +2205,7 @@ strong multicollinearity problems or that the design matrix is singular.</code><
 </div>
 </div>
 <p>Alternatively, we can use a scatterplot to visualize the estimates and their p-values.</p>
-<div id="408b9442" class="cell" data-execution_count="43">
+<div id="1e4f060e" class="cell" data-execution_count="43">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>significant_slopes <span class="op">=</span> []</span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>significant_pvalues <span class="op">=</span> []</span>
 <span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2275,10 +2275,10 @@ strong multicollinearity problems or that the design matrix is singular.</code><
 <span id="cb67-67"><a href="#cb67-67" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"p-value"</span>)</span>
 <span id="cb67-68"><a href="#cb67-68" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb67-69"><a href="#cb67-69" aria-hidden="true" tabindex="-1"></a>plt.title(</span>
-<span id="cb67-70"><a href="#cb67-70" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Repeated regressions of orange_9d8 on B9d8</span><span class="ch">\n</span><span class="st">True slope = 0 in every simulation"</span></span>
+<span id="cb67-70"><a href="#cb67-70" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Repeated regressions of orange_9d8 on B9d8</span><span class="ch">\n</span><span class="st">True slope always = 0"</span></span>
 <span id="cb67-71"><a href="#cb67-71" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb67-72"><a href="#cb67-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb67-73"><a href="#cb67-73" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb67-73"><a href="#cb67-73" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">"upper right"</span>)</span>
 <span id="cb67-74"><a href="#cb67-74" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb67-75"><a href="#cb67-75" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb67-76"><a href="#cb67-76" aria-hidden="true" tabindex="-1"></a>plt.close()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2293,7 +2293,7 @@ strong multicollinearity problems or that the design matrix is singular.</code><
 <p>All red points correspond to statistically significant estimates even though the true coefficient is zero in the data generating process.</p>
 <p>A 0.05 significance threshold for rejecting the null hypothesis of coefficient=0 means that around 5% of the time, the regression will produce a significant estimate purely due to random chance.</p>
 <p>We can compute the frequency of such “false significance” events:</p>
-<div id="8012d0c2" class="cell" data-execution_count="44">
+<div id="87bfdbfb" class="cell" data-execution_count="44">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>n_significant <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> pvalue <span class="kw">in</span> p_values:</span>
@@ -2321,7 +2321,7 @@ strong multicollinearity problems or that the design matrix is singular.</code><
 <section id="confidence-intervals-under-a-true-null-hypothesis" class="level2">
 <h2 class="anchored" data-anchor-id="confidence-intervals-under-a-true-null-hypothesis">Confidence intervals under a true null hypothesis</h2>
 <p>Here is a plot of the first 100 confidence intervals for the coefficient on <code>B9d8</code>. Intervals that fail to include zero correspond to statistically significant results.</p>
-<div id="0710ac8f" class="cell" data-execution_count="45">
+<div id="e2f252e4" class="cell" data-execution_count="45">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>n_intervals_to_plot <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">12</span>))</span>
@@ -3958,10 +3958,10 @@ strong multicollinearity problems or that the design matrix is singular.</code><
 <span id="cb71-1562"><a href="#cb71-1562" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"p-value"</span>)</span>
 <span id="cb71-1563"><a href="#cb71-1563" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb71-1564"><a href="#cb71-1564" aria-hidden="true" tabindex="-1"></a>plt.title(</span>
-<span id="cb71-1565"><a href="#cb71-1565" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Repeated regressions of orange_9d8 on B9d8</span><span class="ch">\n</span><span class="st">True slope = 0 in every simulation"</span></span>
+<span id="cb71-1565"><a href="#cb71-1565" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Repeated regressions of orange_9d8 on B9d8</span><span class="ch">\n</span><span class="st">True slope always = 0"</span></span>
 <span id="cb71-1566"><a href="#cb71-1566" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb71-1567"><a href="#cb71-1567" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb71-1568"><a href="#cb71-1568" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb71-1568"><a href="#cb71-1568" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">"upper right"</span>)</span>
 <span id="cb71-1569"><a href="#cb71-1569" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb71-1570"><a href="#cb71-1570" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb71-1571"><a href="#cb71-1571" aria-hidden="true" tabindex="-1"></a>plt.close()</span>
@@ -6185,10 +6185,10 @@ strong multicollinearity problems or that the design matrix is singular.</code><
 <span id="cb72-1741"><a href="#cb72-1741" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"p-value"</span>)</span>
 <span id="cb72-1742"><a href="#cb72-1742" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-1743"><a href="#cb72-1743" aria-hidden="true" tabindex="-1"></a>plt.title(</span>
-<span id="cb72-1744"><a href="#cb72-1744" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Repeated regressions of orange_9d8 on B9d8</span><span class="ch">\n</span><span class="st">True slope = 0 in every simulation"</span></span>
+<span id="cb72-1744"><a href="#cb72-1744" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Repeated regressions of orange_9d8 on B9d8</span><span class="ch">\n</span><span class="st">True slope always = 0"</span></span>
 <span id="cb72-1745"><a href="#cb72-1745" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb72-1746"><a href="#cb72-1746" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-1747"><a href="#cb72-1747" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb72-1747"><a href="#cb72-1747" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">"upper right"</span>)</span>
 <span id="cb72-1748"><a href="#cb72-1748" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-1749"><a href="#cb72-1749" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb72-1750"><a href="#cb72-1750" aria-hidden="true" tabindex="-1"></a>plt.close()</span>
@@ -7859,10 +7859,10 @@ strong multicollinearity problems or that the design matrix is singular.</code><
 <span id="cb72-3419"><a href="#cb72-3419" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"p-value"</span>)</span>
 <span id="cb72-3420"><a href="#cb72-3420" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-3421"><a href="#cb72-3421" aria-hidden="true" tabindex="-1"></a>plt.title(</span>
-<span id="cb72-3422"><a href="#cb72-3422" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Repeated regressions of orange_9d8 on B9d8</span><span class="ch">\n</span><span class="st">True slope = 0 in every simulation"</span></span>
+<span id="cb72-3422"><a href="#cb72-3422" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Repeated regressions of orange_9d8 on B9d8</span><span class="ch">\n</span><span class="st">True slope always = 0"</span></span>
 <span id="cb72-3423"><a href="#cb72-3423" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb72-3424"><a href="#cb72-3424" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-3425"><a href="#cb72-3425" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb72-3425"><a href="#cb72-3425" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">"upper right"</span>)</span>
 <span id="cb72-3426"><a href="#cb72-3426" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-3427"><a href="#cb72-3427" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb72-3428"><a href="#cb72-3428" aria-hidden="true" tabindex="-1"></a>plt.close()</span>

@@ -1562,10 +1562,10 @@ plt.xlabel("Estimated slope")
 plt.ylabel("p-value")
 
 plt.title(
-    "Repeated regressions of orange_9d8 on B9d8\nTrue slope = 0 in every simulation"
+    "Repeated regressions of orange_9d8 on B9d8\nTrue slope always = 0"
 )
 
-plt.legend()
+plt.legend(loc="upper right")
 
 plt.show()
 plt.close()
