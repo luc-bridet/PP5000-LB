@@ -297,17 +297,11 @@ plt.close()
 ## We now compute the line of best fit relating `orange_9d8` to `B9d8`. For
 ## that we load the `statsmodels.api` library
 
-import statsmodels.api as sm
+import statsmodels.formula.api as smf
 
-y_B = df_B["orange_9d8"]
-
-X_B = sm.add_constant(
-    df_B[["B9d8"]]
-)
-
-results_B = sm.OLS(
-    y_B,
-    X_B
+results_B = smf.ols(
+    "orange_9d8 ~ B9d8",
+    data=df_B
 ).fit()
 
 print(results_B.summary())
@@ -325,7 +319,7 @@ print(results_B.summary())
 ## The next figure displays the scatterplot together with the fitted line.
 
 intercept_B = (
-    results_B.params["const"]
+    results_B.params["Intercept"]
 )
 
 slope_B = (
@@ -411,17 +405,9 @@ plt.close()
 
 ## We now compute the line of best fit relating `orange_9d8` to `R9d8`.
 
-import statsmodels.api as sm
-
-y_R = df_R["orange_9d8"]
-
-X_R = sm.add_constant(
-    df_R[["R9d8"]]
-)
-
-results_R = sm.OLS(
-    y_R,
-    X_R
+results_R = smf.ols(
+    "orange_9d8 ~ R9d8",
+    data=df_R
 ).fit()
 
 print(results_R.summary())
@@ -430,7 +416,7 @@ print(results_R.summary())
 ## The next figure displays the scatterplot together with the fitted line.
 
 intercept_R = (
-    results_R.params["const"]
+    results_R.params["Intercept"]
 )
 
 slope_R = (
@@ -517,15 +503,9 @@ plt.close()
 ## We now compute the line of best fit relating `orange_9d8` to
 ## `purple_9d8`.
 
-y_purple = df_purple["orange_9d8"]
-
-X_purple = sm.add_constant(
-    df_purple[["purple_9d8"]]
-)
-
-results_purple = sm.OLS(
-    y_purple,
-    X_purple
+results_purple = smf.ols(
+    "orange_9d8 ~ purple_9d8",
+    data=df_purple
 ).fit()
 
 print(results_purple.summary())
@@ -534,7 +514,7 @@ print(results_purple.summary())
 ## The next figure displays the scatterplot together with the fitted line.
 
 intercept_purple = (
-    results_purple.params["const"]
+    results_purple.params["Intercept"]
 )
 
 slope_purple = (
@@ -654,10 +634,10 @@ plt.show()
 plt.close()
 
 
-## The black point is located at: `(0, const)`. It lies on the fitted
+## The black point is located at: `(0, Intercept)`. It lies on the fitted
 ## regression line, albeit in a region of the scatterplot where there are
-## no observations. The coefficient labelled `const` therefore determines
-## where the regression line crosses the vertical axis.
+## no observations. The coefficient labelled `Intercept` therefore
+## determines where the regression line crosses the vertical axis.
 
 #%% Offramp Centering the predictor
 
@@ -703,19 +683,9 @@ print(
 
 ## We now rerun the regression using the centered predictor.
 
-y_centered = (
-    df_RBY_9d8["orange_9d8"]
-)
-
-X_centered = sm.add_constant(
-    df_RBY_9d8[
-        ["purple_9d8_centered"]
-    ]
-)
-
-results_centered = sm.OLS(
-    y_centered,
-    X_centered
+results_centered = smf.ols(
+    "orange_9d8 ~ purple_9d8_centered",
+    data=df_RBY_9d8
 ).fit()
 
 
@@ -723,7 +693,7 @@ results_centered = sm.OLS(
 ## together with the fitted line from the centered regression.
 
 centercept = (
-    results_centered.params["const"]
+    results_centered.params["Intercept"]
 )
 
 slope_centered = (
@@ -810,7 +780,7 @@ plt.close()
 
 ## The black point has coordinates:
 
-## `(sample mean of purple_9d8, const)`
+## `(sample mean of purple_9d8, Intercept)`
 
 ## We now print the regression summary.
 
@@ -819,7 +789,7 @@ print(
 )
 
 
-## The coefficient labelled `const` is the fitted value when:
+## The coefficient labelled `Intercept` is the fitted value when:
 
 ## `purple_9d8_centered = 0`
 
@@ -1172,7 +1142,7 @@ regression_results_table = pd.DataFrame(
     index=[
         "const_coef",
         "const_P>|t|",
-        "",          #### Blank rows: table more readable
+        "",          #### Blank rows make the table more readable
         "R9d8_coef",
         "R9d8_P>|t|",
        "",
@@ -1242,22 +1212,10 @@ print(regression_results_table.round(3).fillna(""))
 
 ## We now add `B9d8` to the regression that previously used only `R9d8`.
 
-y_RB = df_RBY_9d8["orange_9d8"]
-
-X_RB = sm.add_constant(
-    df_RBY_9d8[
-        [
-            "R9d8",
-            "B9d8"
-        ]
-    ]
-)
-
-results_RB = sm.OLS(
-    y_RB,
-    X_RB
+results_RB = smf.ols(
+    "orange_9d8 ~ R9d8 + B9d8",
+    data=df_RBY_9d8
 ).fit()
-
 
 add_regression_to_table(
     regression_results_table,
@@ -1269,24 +1227,10 @@ print(regression_results_table.round(3).fillna(""))
 
 
 
-y_purple_R = (
-    df_RBY_9d8["orange_9d8"]
-)
-
-X_purple_R = sm.add_constant(
-    df_RBY_9d8[
-        [
-            "purple_9d8",
-            "R9d8"
-        ]
-    ]
-)
-
-results_purple_R = sm.OLS(
-    y_purple_R,
-    X_purple_R
+results_purple_R = smf.ols(
+    "orange_9d8 ~ purple_9d8 + R9d8",
+    data=df_RBY_9d8
 ).fit()
-
 
 add_regression_to_table(
     regression_results_table,
@@ -1298,23 +1242,11 @@ print(regression_results_table.round(3).fillna(""))
 
 
 
-y_purple_B = (
-    df_RBY_9d8["orange_9d8"]
-)
-
-X_purple_B = sm.add_constant(
-    df_RBY_9d8[
-        [
-            "purple_9d8",
-            "B9d8"
-        ]
-    ]
-)
-
-results_purple_B = sm.OLS(
-    y_purple_B,
-    X_purple_B
+results_purple_B = smf.ols(
+    "orange_9d8 ~ purple_9d8 + B9d8",
+    data=df_RBY_9d8
 ).fit()
+
 
 add_regression_to_table(
     regression_results_table,
@@ -1423,23 +1355,9 @@ print(correlation_matrix)
 
 ## - `orange_9d8`
 
-y_collinear = (
-    df_RBY_9d8["orange_9d8"]
-)
-
-X_collinear = sm.add_constant(
-    df_RBY_9d8[
-        [
-            "purple_9d8",
-            "R9d8",
-            "B9d8"
-        ]
-    ]
-)
-
-results_collinear = sm.OLS(
-    y_collinear,
-    X_collinear
+results_collinear = smf.ols(
+    "orange_9d8 ~ purple_9d8 + R9d8 + B9d8",
+    data=df_RBY_9d8
 ).fit()
 
 print(results_collinear.summary())
@@ -1451,553 +1369,310 @@ print(results_collinear.summary())
 ## singular." is the only warning we get.
 
 ## The problem is that `purple_9d8 = R9d8 + B9d8`, so there is perfect
-## multicollinearity  you can read in econometrics textbooks why
-## multicollinearity is an issue. Arguably, `sm.OLS.fit()` should not even
-## return a result in this situation. Other stats packages e.g. Stata would
-## inform the user that there is a problem and would automatically drop one
-## variable from the regression.
+## multicollinearity: there is no unique vector of coefficients minimizing
+## the sum of squared residuals, so strictly speaking the OLS estimate is
+## not well-defined. Arguably, `sm.OLS.fit()` should not even return a
+## result in this situation. Other stats packages e.g. Stata would inform
+## the user that there is a problem and would automatically drop one
+## variable from the regression. You can read more in econometrics
+## textbooks about why multicollinearity is an issue, but for now let's
+## just take this as a cautionary lesson about trusting results without
+## inspecting the summary.
 
-## So, remember to read the whole summary and think about your
-## specification!
+#%% Repeated sampling under a true null hypothesis
 
+## We now investigate what happens when a regression coefficient is truly
+## zero in the data generating process, but the researcher does not know
+## that.
 
-#%% A nonlinear datagenerating process
+## The data-generating process is:
 
-## So far, the outcome variables were constructed using sums of d8. Sums
-## are a linear transformation.
+## orange_9d8 = R9d8 + Y9d8
 
-## We now generate a new dataset from d8, this time using a different,
-## nonlinear transformation.
+## The variable B9d8 is generated independently from R9d8 and Y9d8 and
+## therefore has no effect on orange_9d8. Its true population coefficient
+## is exactly zero.
 
-## For each observation:
+## Nevertheless, every sample is different. Sampling variation produces
+## different coefficient estimates, t statistics, p-values, and confidence
+## intervals. So it is possible, purely through randomness, for an
+## estimated regression to feature a significant coefficient on B9d8. We
+## can observe this via simulation.
 
-## - roll 9 black d8 and record their sum as `K9d8`
-## - roll 9 white d8 and record their sum as `W9d8`
-## - roll 9 yellow d8
-## - roll 4 red d8
-## - roll 4 blue d8
+n_replications = 1000
+n_observations = 150
+significance_threshold=0.05
 
-## We then construct a pool of available d8:
+slope_estimates = []
+p_values = []
+t_statistics = []
+confidence_interval_lower_bounds = []
+confidence_interval_upper_bounds = []
 
-## - the pool always contains the 9 yellow d8
-## - if `K9d8 >= 46`, add the 4 red d8 to the pool
-## - if `W9d8 <= 39`, add the 4 blue d8 to the pool
+for replication in range(n_replications):
 
-## Define `pool_9d8` as the sum of the 9 largest d8 available in the pool.
+    R9d8 = []
+    B9d8 = []
+    Y9d8 = []
 
-## We begin by constructing a dataset containing all intermediate
-## calculations.
+    for i in range(n_observations):
 
-K9d8_threshold = 46
-W9d8_threshold = 39
+        R9d8.append(roll_9d8())
+        B9d8.append(roll_9d8())
+        Y9d8.append(roll_9d8())
 
-n_observations_nonlinear = 450
-
-construction_rows = []
-
-for i in range(n_observations_nonlinear):
-
-    K9d8 = roll_9d8()
-    W9d8 = roll_9d8()
-
-    yellow_d8 = [
-        random.randint(1, 8)
-        for j in range(9)
-    ]
-
-    red_d8 = [
-        random.randint(1, 8)
-        for j in range(4)
-    ]
-
-    blue_d8 = [
-        random.randint(1, 8)
-        for j in range(4)
-    ]
-
-    K_eligible = (
-        K9d8 >= K9d8_threshold
-    )
-
-    W_eligible = (
-        W9d8 <= W9d8_threshold
-    )
-
-    pool_d8 = (
-        yellow_d8.copy()
-    )
-
-    if K_eligible:
-
-        pool_d8.extend(
-            red_d8
-        )
-
-    if W_eligible:
-
-        pool_d8.extend(
-            blue_d8
-        )
-
-    pool_d8.sort(
-        reverse=True
-    )
-
-    Y9d8 = sum(
-        yellow_d8
-    )
-
-    pool_9d8 = sum(
-        pool_d8[:9]
-    )
-
-    construction_rows.append({
-
-        "K9d8": K9d8,
-        "W9d8": W9d8,
-
-        "yellow_d8": yellow_d8,
-        "red_d8": red_d8,
-        "blue_d8": blue_d8,
-
-        "K_eligible": K_eligible,
-        "W_eligible": W_eligible,
-
-        "Y9d8": Y9d8,
-        "pool_9d8": pool_9d8
-
+    df_sim = pd.DataFrame({
+        "R9d8": R9d8,
+        "B9d8": B9d8,
+        "Y9d8": Y9d8
     })
 
-df_construction = pd.DataFrame(
-    construction_rows
+    df_sim["orange_9d8"] = (
+        df_sim["R9d8"]
+        +
+        df_sim["Y9d8"]
+    )
+
+    results = smf.ols(
+        "orange_9d8 ~ B9d8 + R9d8",
+        data=df_sim
+    ).fit()
+
+    slope_estimates.append(
+        results.params["B9d8"]
+    )
+
+    p_values.append(
+        results.pvalues["B9d8"]
+    )
+
+    t_statistics.append(
+        results.tvalues["B9d8"]
+    )
+
+    confidence_interval = (
+        results.conf_int().loc["B9d8"]
+    )
+
+    confidence_interval_lower_bounds.append(
+        confidence_interval[0]
+    )
+
+    confidence_interval_upper_bounds.append(
+        confidence_interval[1]
+    )
+
+
+#%% Distribution of coefficient estimates
+
+## The histogram below shows the sampling distribution of the estimated
+## B9d8 coefficient.
+
+plt.figure(figsize=(8,6))
+
+plt.hist(
+    slope_estimates,
+    bins=50,
+    edgecolor="black"
 )
 
-print(
-    df_construction.head()
+plt.axvline(
+    0,
+    color="red",
+    linewidth=2
 )
 
+plt.xlabel("Estimated slope")
+plt.ylabel("Count")
 
-#%% Constructing an analysis dataset
-
-## Suppose a researcher observes:
-
-## - `K9d8`
-## - `W9d8`
-## - `pool_9d8`
-
-## but does not observe the individual d8 used to construct the pool score.
-## The researcher also does not know the precise rules used to determine
-## which d8 entered the pool.
-## The analysis dataset contains only three variables.
-
-df_KWP_9d8 = (
-    df_construction[
-        [
-            "K9d8",
-            "W9d8",
-            "pool_9d8"
-        ]
-    ]
-    .copy()
+plt.title(
+    "Histogram of slope estimates (true slope = 0)"
 )
 
-print(
-    df_KWP_9d8.head()
-)
+plt.show()
+plt.close()
 
+## Alternatively, we can use a scatterplot to visualize the estimates and
+## their p-values.
 
-## The next figure displays the distribution of each variable separately.
+significant_slopes = []
+significant_pvalues = []
 
-fig, axes = plt.subplots(
-    3,
-    1,
-    figsize=(6,9)
-)
+nonsignificant_slopes = []
+nonsignificant_pvalues = []
 
-variables = [
-    "K9d8",
-    "W9d8",
-    "pool_9d8"
-]
-
-for ax, variable in zip(
-    axes,
-    variables
+for slope, pvalue in zip(
+    slope_estimates,
+    p_values
 ):
 
-    counts = (
-        df_KWP_9d8[variable]
-        .value_counts()
-        .sort_index()
-    )
+    if pvalue < significance_threshold:
 
-    ax.bar(
-        counts.index,
-        counts.values
-    )
+        significant_slopes.append(
+            slope
+        )
 
-    ax.set_title(
-        variable
-    )
+        significant_pvalues.append(
+            pvalue
+        )
 
-plt.tight_layout()
+    else:
 
-plt.show()
-plt.close()
+        nonsignificant_slopes.append(
+            slope
+        )
 
-print(
-    df_KWP_9d8.describe()
-)
+        nonsignificant_pvalues.append(
+            pvalue
+        )
 
-
-## Each bar chart summarizes a single variable.
-
-
-
-#%% Pairwise relationships
-
-## The next figure displays scatterplots for three variable pairs:
-
-## - `K9d8` and `W9d8`
-## - `K9d8` and `pool_9d8`
-## - `W9d8` and `pool_9d8`
-
-fig, axes = plt.subplots(
-    3,
-    1,
-    figsize=(6,12)
-)
-
-axes[0].scatter(
-    df_KWP_9d8["K9d8"],
-    df_KWP_9d8["W9d8"],
-    s=10
-)
-
-axes[0].set_xlabel(
-    "K9d8"
-)
-
-axes[0].set_ylabel(
-    "W9d8"
-)
-
-axes[1].scatter(
-    df_KWP_9d8["K9d8"],
-    df_KWP_9d8["pool_9d8"],
-    s=10
-)
-
-axes[1].set_xlabel(
-    "K9d8"
-)
-
-axes[1].set_ylabel(
-    "pool_9d8"
-)
-
-axes[2].scatter(
-    df_KWP_9d8["W9d8"],
-    df_KWP_9d8["pool_9d8"],
-    s=10
-)
-
-axes[2].set_xlabel(
-    "W9d8"
-)
-
-axes[2].set_ylabel(
-    "pool_9d8"
-)
-
-plt.tight_layout()
-
-plt.show()
-plt.close()
-
-
-
-#%% Regression using K9d8
-
-## We begin by relating `pool_9d8` to `K9d8`.
-
-y_K = (
-    df_KWP_9d8["pool_9d8"]
-)
-
-X_K = sm.add_constant(
-    df_KWP_9d8[
-        ["K9d8"]
-    ]
-)
-
-results_K = sm.OLS(
-    y_K,
-    X_K
-).fit()
-
-
-## The next figure displays the scatterplot together with the fitted line.
-
-intercept_K = (
-    results_K.params["const"]
-)
-
-slope_K = (
-    results_K.params["K9d8"]
-)
-
-x_line_K = list(
-    range(
-        int(
-            df_KWP_9d8["K9d8"].min()
-        ),
-        int(
-            df_KWP_9d8["K9d8"].max()
-        ) + 1
-    )
-)
-
-y_line_K = [
-    intercept_K + slope_K * x
-    for x in x_line_K
-]
-
-plt.figure(figsize=(6,6))
+plt.figure(figsize=(8,6))
 
 plt.scatter(
-    df_KWP_9d8["K9d8"],
-    df_KWP_9d8["pool_9d8"],
-    s=10
+    nonsignificant_slopes,
+    nonsignificant_pvalues,
+    color="gray",
+    alpha=0.5,
+    s=10,
+    label=f"Not significant at {significance_threshold}"
 )
-
-plt.plot(
-    x_line_K,
-    y_line_K,
-    color="red"
-)
-
-plt.xlabel("K9d8")
-plt.ylabel("pool_9d8")
-
-plt.grid(alpha=0.3)
-
-plt.show()
-plt.close()
-
-
-
-
-#%% Regression using W9d8
-
-## We next relate `pool_9d8` to `W9d8`.
-
-y_W = (
-    df_KWP_9d8["pool_9d8"]
-)
-
-X_W = sm.add_constant(
-    df_KWP_9d8[
-        ["W9d8"]
-    ]
-)
-
-results_W = sm.OLS(
-    y_W,
-    X_W
-).fit()
-
-
-## The next figure displays the scatterplot together with the fitted line.
-
-intercept_W = (
-    results_W.params["const"]
-)
-
-slope_W = (
-    results_W.params["W9d8"]
-)
-
-x_line_W = list(
-    range(
-        int(
-            df_KWP_9d8["W9d8"].min()
-        ),
-        int(
-            df_KWP_9d8["W9d8"].max()
-        ) + 1
-    )
-)
-
-y_line_W = [
-    intercept_W + slope_W * x
-    for x in x_line_W
-]
-
-plt.figure(figsize=(6,6))
 
 plt.scatter(
-    df_KWP_9d8["W9d8"],
-    df_KWP_9d8["pool_9d8"],
-    s=10
-)
-
-plt.plot(
-    x_line_W,
-    y_line_W,
-    color="red"
-)
-
-plt.xlabel("W9d8")
-plt.ylabel("pool_9d8")
-
-plt.grid(alpha=0.3)
-
-plt.show()
-plt.close()
-
-
-
-
-#%% Regression using K9d8 and W9d8
-
-## We now include both predictors simultaneously.
-
-y_KW = (
-    df_KWP_9d8["pool_9d8"]
-)
-
-X_KW = sm.add_constant(
-    df_KWP_9d8[
-        [
-            "K9d8",
-            "W9d8"
-        ]
-    ]
-)
-
-results_KW = sm.OLS(
-    y_KW,
-    X_KW
-).fit()
-
-
-
-
-#%% Comparing the regressions
-
-## We now collect the results from the three regressions in a common table.
-
-regression_summaries = {}
-
-regression_results_table_nonlinear = pd.DataFrame(
-    index=[
-        "const_coef",
-        "const_P>|t|",
-
-        "",
-
-        "K9d8_coef",
-        "K9d8_P>|t|",
-
-        "",
-
-        "W9d8_coef",
-        "W9d8_P>|t|",
-
-        "",
-
-        "R-squared",
-        "Adj. R-squared",
-        "No. Observations"
-    ]
-)
-
-add_regression_to_table(
-    regression_results_table_nonlinear,
-    "K9d8",
-    results_K
-)
-
-add_regression_to_table(
-    regression_results_table_nonlinear,
-    "W9d8",
-    results_W
-)
-
-add_regression_to_table(
-    regression_results_table_nonlinear,
-    "K9d8+W9d8",
-    results_KW
-)
-
-print(
-    regression_results_table_nonlinear
-    .round(4)
-    .fillna("")
-)
-
-
-## The table contains:
-
-## - `pool_9d8 ~ K9d8`
-## - `pool_9d8 ~ W9d8`
-## - `pool_9d8 ~ K9d8 + W9d8`
-
-## Each column corresponds to a regression specification.
-
-
-
-#%% Fitted values residuals and diagnostics
-
-## The next summary corresponds to:
-
-## ```text
-## pool_9d8 ~ K9d8 + W9d8
-## ```
-
-print(
-    results_KW.summary()
-)
-
-
-df_KWP_9d8["pool_9d8_predicted"] = (
-    results_KW.predict(
-        X_KW
-    )
-)
-
-df_KWP_9d8["pool_9d8_residual"] = (
-    df_KWP_9d8["pool_9d8"]
-    -
-    df_KWP_9d8["pool_9d8_predicted"]
-)
-
-
-## The next figure displays the residuals from the regression.
-
-plt.figure(figsize=(6,6))
-
-plt.scatter(
-    df_KWP_9d8["pool_9d8_predicted"],
-    df_KWP_9d8["pool_9d8_residual"],
-    s=10
+    significant_slopes,
+    significant_pvalues,
+    color="red",
+    alpha=0.8,
+    s=10,
+    label="significant p-value < {significance_threshold}"
 )
 
 plt.axhline(
+    significance_threshold,
+    color="black",
+    linestyle="--",
+    linewidth=2
+)
+
+plt.axvline(
     0,
-    color="red"
+    color="blue",
+    linestyle="--",
+    linewidth=2
 )
 
-plt.xlabel(
-    "pool_9d8_predicted"
+plt.xlabel("Estimated slope")
+plt.ylabel("p-value")
+
+plt.title(
+    "Repeated regressions of orange_9d8 on B9d8\nTrue slope = 0 in every simulation"
 )
 
-plt.ylabel(
-    "pool_9d8_residual"
-)
-
-plt.grid(alpha=0.3)
+plt.legend()
 
 plt.show()
 plt.close()
+
+
+## All red points correspond to statistically significant estimates even
+## though the true coefficient is zero in the data generating process.
+
+## A 0.05 significance threshold for rejecting the null hypothesis of
+## coefficient=0 means that around 5% of the time, the regression will
+## produce a significant estimate purely due to random chance.
+
+## We can compute the frequency of such "false significance" events:
+
+n_significant = 0
+
+for pvalue in p_values:
+
+    if pvalue < significance_threshold:
+
+        n_significant += 1
+
+false_significant_rate = (
+    n_significant
+    /
+    len(p_values)
+)
+
+print(
+    "Fraction significant:",
+    round(false_significant_rate, 4)
+)
+
+
+## The observed fraction should be close to `significance_threshold` when
+## `n_replications` is high.
+
+#%% Confidence intervals under a true null hypothesis
+
+## Here is a plot of the first 100 confidence intervals for the coefficient
+## on `B9d8`. Intervals that fail to include zero correspond to
+## statistically significant results.
+
+n_intervals_to_plot = 100
+
+plt.figure(figsize=(8,12))
+
+for interval_index in range(
+    n_intervals_to_plot
+):
+
+    lower_bound = (
+        confidence_interval_lower_bounds[
+            interval_index
+        ]
+    )
+
+    upper_bound = (
+        confidence_interval_upper_bounds[
+            interval_index
+        ]
+    )
+
+    excludes_zero = (
+        lower_bound > 0
+        or
+        upper_bound < 0
+    )
+
+    if excludes_zero:
+
+        color = "red"
+
+    else:
+
+        color = "gray"
+
+    plt.plot(
+        [lower_bound, upper_bound],
+        [interval_index, interval_index],
+        color=color
+    )
+
+plt.axvline(
+    0,
+    color="black",
+    linestyle="--"
+)
+
+plt.xlabel(
+    "Estimated coefficient"
+)
+
+plt.ylabel(
+    "Simulation"
+)
+
+plt.title(
+    "95% confidence intervals for the B9d8 coefficient (true slope=0)"
+)
+
+plt.show()
+plt.close()
+
+
+## The red intervals exclude zero and therefore correspond to statistically
+## significant estimates. The gray intervals contain zero and therefore do
+## not lead to rejecting the null hypothesis.
