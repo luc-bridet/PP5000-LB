@@ -813,9 +813,7 @@ print(
 ## They are computed directly from the estimated intercept and slope.
 
 df_RBY_9d8["orange_9d8_predicted"] = (
-    results_purple.predict(
-        X_purple
-    )
+    results_purple.fittedvalues
 )
 
 print(
