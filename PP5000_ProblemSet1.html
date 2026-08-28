@@ -133,7 +133,7 @@ window.Quarto = {
 <p>Choose one of the following 3 options:</p>
 <ul>
 <li><p>Solve exercise 2611121 and exercise 101412121614</p></li>
-<li><p>Solve exercise 10141212816</p></li>
+<li><p>Solve exercise 16610101020</p></li>
 <li><p>Solve exercise 1200110030</p></li>
 </ul>
 <p>The deadline is <strong>Tuesday, September 01, 19:30</strong>.</p>
@@ -146,7 +146,7 @@ window.Quarto = {
 <hr>
 <section id="exercise-2611121-comparing-2d61-and-1d121" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2611121-comparing-2d61-and-1d121">Exercise 2611121: comparing <code>2d6+1</code> and <code>1d12+1</code></h2>
-<div id="51550d52" class="cell" data-execution_count="1">
+<div id="2b43ee38" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>random.seed(<span class="dv">2611121</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>n_realizations<span class="op">=</span><span class="dv">4000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -178,8 +178,8 @@ window.Quarto = {
 </section>
 <section id="hypothesis-testing-reverse-the-hypotheses" class="level2">
 <h2 class="anchored" data-anchor-id="hypothesis-testing-reverse-the-hypotheses">101412121614 Hypothesis testing — Reverse the hypotheses</h2>
-<p>The goal of this exercise is to follow the lecture notes’ example of hypothesis testing, except we flip the hypotheses. The null hypothesis is now H0: the d6 is rigged, and the alternative hypothesis is now H1: the d6 is fair.</p>
-<div id="23a5c206" class="cell" data-execution_count="2">
+<p>The goal of this exercise is to follow the lecture notes’ example of hypothesis testing, except we flip the hypotheses. The null hypothesis is now H0: the d6 is rigged, and the alternative hypothesis is now H1: the d6 is fair. The test statistic is the sample mean.</p>
+<div id="2d1f3a7c" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>random.seed(<span class="dv">101412121614</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -197,31 +197,31 @@ window.Quarto = {
 <section id="distribution-of-the-test-statistic-and-decision-rule." class="level3">
 <h3 class="anchored" data-anchor-id="distribution-of-the-test-statistic-and-decision-rule.">Distribution of the test statistic and decision rule.</h3>
 <ul>
-<li><p>Perform ‘n_simulations’ simulations to generate the distribution of the sample mean assuming H0.</p></li>
-<li><p>Display the sample mean under H0 as a histogram.</p></li>
-<li><p>Perform ‘n_simulations’ simulations to generate the distribution of the sample mean assuming H1.</p></li>
-<li><p>Display the sample mean under H1 as a histogram on the same graph.</p></li>
-<li><p>Choose the decision rule such that type I errors occur with probability <code>alpha</code> when H0 is true.</p></li>
+<li><p>Draw <code>n_simulations</code> samples assuming H0 and compute the test statistic for each sample.</p></li>
+<li><p>Display the distribution of the test statistic under H0 as a histogram.</p></li>
+<li><p>Draw <code>n_simulations</code> samples assuming H1 and compute the test statistic for each sample.</p></li>
+<li><p>Display the distribution of the test statistic under H1 as a histogram <strong>on the same graph</strong>.</p></li>
+<li><p>Choose the decision rule (the rejection region) such that when H0 is true, type I errors occur with probability <code>alpha</code>.</p></li>
 </ul>
 <hr>
 </section>
 <section id="trials-of-testing-a-d6-of-unknown-type." class="level3">
 <h3 class="anchored" data-anchor-id="trials-of-testing-a-d6-of-unknown-type.">30 trials of testing a d6 of unknown type.</h3>
-<p>Perform 30 “trials”: in each trial, the type of d6 is chosen randomly (chosen to be fair or rigged with equal probability), then a sample of size <code>sample_size</code> is generated, the sample mean is computed, then a decision to reject or not the null hypothesis is taken. For each trial, print:</p>
+<p>Perform 30 <strong>trials</strong>: in each trial, the type of d6 is chosen randomly (chosen to be fair or rigged with equal probability), then a sample of size <code>sample_size</code> is generated, the test statistic is computed, then a decision to reject or not the null hypothesis is taken. For each trial, print:</p>
 <ul>
 <li><p>true type of the d6</p></li>
-<li><p>sample mean</p></li>
-<li><p>p-value of the sample mean assuming H0 is true</p></li>
-<li><p>Decision (reject or fail to reject H0)</p></li>
-<li><p>Whether the decision was correct, a type I error, or a type II error.</p></li>
+<li><p>realization of the test statistic in this sample</p></li>
+<li><p>p-value of the realization of the test statistic assuming H0 is true</p></li>
+<li><p>Decision (either <code>reject H0</code> or <code>fail to reject H0</code>)</p></li>
+<li><p>Whether the decision was correct, a type I error, or a type II error</p></li>
 </ul>
 <hr>
 </section>
 <section id="from-trials-to-simulations" class="level3">
 <h3 class="anchored" data-anchor-id="from-trials-to-simulations">From trials to simulations</h3>
 <ul>
-<li><p>Perform ‘n_simulations’ simulations with a rigged d6 and compute the frequency of type I errors.</p></li>
-<li><p>Perform ‘n_simulations’ simulations with a fair d6 and compute the frequency of type II errors.</p></li>
+<li><p>Using the samples drawn previously, compute the frequency of type I errors.</p></li>
+<li><p>Using the samples drawn previously, compute the frequency of type II errors.</p></li>
 <li><p>Give the empirical <strong>power</strong> of the test.</p></li>
 </ul>
 <hr>
@@ -230,27 +230,25 @@ window.Quarto = {
 </section>
 </section>
 <section id="hypothesis-testing-mean-vs-variance-optional-vs-log-likelihood-ratio" class="level2">
-<h2 class="anchored" data-anchor-id="hypothesis-testing-mean-vs-variance-optional-vs-log-likelihood-ratio">10141212816 Hypothesis testing — Mean vs Variance (OPTIONAL: vs log likelihood ratio)</h2>
+<h2 class="anchored" data-anchor-id="hypothesis-testing-mean-vs-variance-optional-vs-log-likelihood-ratio">16610101020 Hypothesis testing — Mean vs Variance (OPTIONAL: vs log likelihood ratio)</h2>
 <p>The goal of this exercise is to consider a different type of rigged d6 and different test statistics. The null hypothesis is H0: the d6 is fair, and the alternative hypothesis is H1: the d6 is rigged.</p>
-<div id="c01c2473" class="cell" data-execution_count="3">
+<div id="bd116146" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>random.seed(<span class="dv">10141212816</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>random.seed(<span class="dv">16610101020</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>n_simulations <span class="op">=</span> <span class="dv">3000</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>alpha <span class="op">=</span> <span class="fl">0.10</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>sample_size <span class="op">=</span> <span class="dv">50</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>interval_widths_fair <span class="op">=</span> [<span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">12</span>]</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>interval_widths_rigged <span class="op">=</span> [<span class="dv">14</span>, <span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">8</span>, <span class="dv">16</span>]</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>interval_widths_rigged <span class="op">=</span> [<span class="dv">16</span>, <span class="dv">6</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">20</span>]</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> jitter(x, scale):</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">+</span> random.uniform(<span class="op">-</span>scale, scale)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Apply a small <strong>jitter</strong> (<code>1e-6</code>) whenever you compute a test statistic. The jitter ensures that no two samples have exactly the same value of the test statistic.</p>
-<p>Follow the hypothesis testing procedure. First, use the <strong>sample mean</strong> as the test statistic (as in the lecture notes). Then, repeat the procedure, with a different test statistic: the <strong>sample variance</strong>.</p>
-<p><strong>OPTIONAL</strong>: repeat the procedure with yet another test statistic: the <strong>log-likelihood ratio</strong>.</p>
-<p><strong>Remark</strong>: don’t generate different samples each time, you can simply compute multiple test statistics on the same samples.</p>
-<p>At the end, construct a dataframe with one row per test statistic, and with colums for:</p>
+<p>Follow the hypothesis testing procedure outlined below, using the <strong>sample mean</strong> as the test statistic (as in the lecture notes). Then, repeat the procedure, with a different test statistic: the <strong>sample variance</strong>. <strong>OPTIONAL</strong>: repeat the procedure with yet another test statistic: the <strong>log-likelihood ratio</strong>.</p>
+<p><strong>Remark</strong>: you can compute multiple test statistics on the same sample, rather than draw new samples when you change the test statistic. At the end, construct a dataframe with one row per test statistic, and with columns for:</p>
 <ul>
 <li><p>decision rule (cutoff)</p></li>
 <li><p>frequency of type I errors (empirical alpha)</p></li>
@@ -271,31 +269,19 @@ window.Quarto = {
 <section id="distribution-of-the-test-statistic-and-decision-rule.-1" class="level3">
 <h3 class="anchored" data-anchor-id="distribution-of-the-test-statistic-and-decision-rule.-1">Distribution of the test statistic and decision rule.</h3>
 <ul>
-<li><p>Perform ‘n_simulations’ simulations to generate the distribution of the test statistic assuming H0.</p></li>
-<li><p>Display the test statistic under H0 as a histogram.</p></li>
-<li><p>Perform ‘n_simulations’ simulations to generate the distribution of the test statistic assuming H1.</p></li>
-<li><p>Display the test statistic under H1 as a histogram on the same graph.</p></li>
-<li><p>Choose the decision rule such that type I errors occur with probability <code>alpha</code> when H0 is true.</p></li>
-</ul>
-<hr>
-</section>
-<section id="trials-of-testing-a-d6-of-unknown-type.-1" class="level3">
-<h3 class="anchored" data-anchor-id="trials-of-testing-a-d6-of-unknown-type.-1">30 trials of testing a d6 of unknown type.</h3>
-<p>Perform 30 “trials”: in each trial, the type of d6 is chosen randomly (chosen to be fair or rigged with equal probability), then a sample of size <code>sample_size</code> is generated, the test statistic is computed, then a decision to reject or not the null hypothesis is taken. For each trial, print:</p>
-<ul>
-<li><p>true type of the d6</p></li>
-<li><p>realization of the test statistic</p></li>
-<li><p>p-value of the test statistic assuming H0 is true</p></li>
-<li><p>Decision (reject or fail to reject H0)</p></li>
-<li><p>Whether the decision was correct, a type I error, or a type II error.</p></li>
+<li><p>Draw <code>n_simulations</code> samples assuming H0 and compute the test statistic for each sample.</p></li>
+<li><p>Display the distribution of the test statistic under H0 as a histogram.</p></li>
+<li><p>Draw <code>n_simulations</code> samples assuming H1 and compute the test statistic for each sample.</p></li>
+<li><p>Display the distribution of the test statistic under H1 as a histogram <strong>on the same graph</strong>.</p></li>
+<li><p>Choose the decision rule (the rejection region) such that when H0 is true, type I errors occur with probability <code>alpha</code>.</p></li>
 </ul>
 <hr>
 </section>
 <section id="from-trials-to-simulations-1" class="level3">
 <h3 class="anchored" data-anchor-id="from-trials-to-simulations-1">From trials to simulations</h3>
 <ul>
-<li><p>Perform ‘n_simulations’ simulations with a fair d6 and compute the frequency of type I errors.</p></li>
-<li><p>Perform ‘n_simulations’ simulations with a rigged d6 and compute the frequency of type II errors.</p></li>
+<li><p>Using the fair d6 samples drawn previously, compute the frequency of type I errors.</p></li>
+<li><p>Using the rigged d6 samples drawn previously, compute the frequency of type II errors.</p></li>
 <li><p>Give the empirical <strong>power</strong> of the test.</p></li>
 </ul>
 </section>
@@ -307,7 +293,7 @@ window.Quarto = {
 <section id="exercise-1200110030-pooled-virus-testing" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-1200110030-pooled-virus-testing">Exercise 1200110030 — Pooled virus testing</h3>
 <p><em>Source:</em> Cyganowski, S., Kloeden, P. E., and Ombach, J. (2002), <em>From Elementary Probability to Stochastic Differential Equations with Maple</em>, Springer.</p>
-<div id="1ecb9ace" class="cell" data-execution_count="4">
+<div id="c4562168" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>random.seed(<span class="dv">1200110030</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -842,7 +828,7 @@ window.Quarto = {
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Solve exercise 2611121 and exercise 101412121614</span>
 <span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Solve exercise 10141212816</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Solve exercise 16610101020</span>
 <span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Solve exercise 1200110030</span>
 <span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
@@ -910,230 +896,217 @@ window.Quarto = {
 <span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>The goal of this exercise is to follow the lecture notes' example of hypothesis testing, except we flip the hypotheses. </span>
 <span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>The null hypothesis is now H0: the d6 is rigged, and the alternative hypothesis is now H1: the d6 is fair.</span>
-<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
-<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>random.seed(<span class="dv">101412121614</span>)</span>
-<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a>n_simulations <span class="op">=</span> <span class="dv">2000</span></span>
-<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>alpha <span class="op">=</span> <span class="fl">0.10</span></span>
-<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>sample_size <span class="op">=</span> <span class="dv">50</span></span>
-<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>interval_widths_fair <span class="op">=</span> [<span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">12</span>]</span>
-<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>interval_widths_rigged <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">8</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">16</span>, <span class="dv">14</span>]</span>
-<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> jitter(x, scale):</span>
-<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">+</span> random.uniform(<span class="op">-</span>scale, scale)</span>
-<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a>Apply a small **jitter** (<span class="in">`1e-6`</span>) whenever you compute a test statistic. The jitter ensures that no two samples have exactly the same value of the test statistic. </span>
-<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a><span class="fu">### Distribution of the test statistic and decision rule.</span></span>
-<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Perform 'n_simulations' simulations to generate the distribution of the sample mean assuming H0. </span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>The test statistic is the sample mean.</span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>random.seed(<span class="dv">101412121614</span>)</span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>n_simulations <span class="op">=</span> <span class="dv">2000</span></span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>alpha <span class="op">=</span> <span class="fl">0.10</span></span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>sample_size <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>interval_widths_fair <span class="op">=</span> [<span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">12</span>]</span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a>interval_widths_rigged <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">8</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">16</span>, <span class="dv">14</span>]</span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> jitter(x, scale):</span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">+</span> random.uniform(<span class="op">-</span>scale, scale)</span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a>Apply a small **jitter** (<span class="in">`1e-6`</span>) whenever you compute a test statistic. The jitter ensures that no two samples have exactly the same value of the test statistic. </span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a><span class="fu">### Distribution of the test statistic and decision rule.</span></span>
 <span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Display the sample mean under H0 as a histogram.</span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Draw <span class="in">`n_simulations`</span> samples assuming H0 and compute the test statistic for each sample. </span>
 <span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Perform 'n_simulations' simulations to generate the distribution of the sample mean assuming H1. </span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Display the distribution of the test statistic under H0 as a histogram.</span>
 <span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Display the sample mean under H1 as a histogram on the same graph.</span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Draw <span class="in">`n_simulations`</span> samples assuming H1 and compute the test statistic for each sample.</span>
 <span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Choose the decision rule such that type I errors occur with probability <span class="in">`alpha`</span> when H0 is true.</span>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Display the distribution of the test statistic under H1 as a histogram **on the same graph**.</span>
 <span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a>___</span>
-<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a><span class="fu">### 30 trials of testing a d6 of unknown type.</span></span>
-<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a>Perform 30 "trials": in each trial, the type of d6 is chosen randomly (chosen to be fair or rigged with equal probability), then a sample of size <span class="in">`sample_size`</span> is generated, the sample mean is computed, then a decision to reject or not the null hypothesis is taken. For each trial, print:</span>
-<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>true type of the d6</span>
-<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>sample mean</span>
-<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>p-value of the sample mean assuming H0 is true</span>
-<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Decision (reject or fail to reject H0)</span>
-<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Whether the decision was correct, a type I error, or a type II error.</span>
-<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a>___</span>
-<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a><span class="fu">### From trials to simulations</span></span>
+<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Choose the decision rule (the rejection region) such that when H0 is true, type I errors occur with probability <span class="in">`alpha`</span>.</span>
+<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a>___</span>
+<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a><span class="fu">### 30 trials of testing a d6 of unknown type.</span></span>
+<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a>Perform 30 **trials**: in each trial, the type of d6 is chosen randomly (chosen to be fair or rigged with equal probability), then a sample of size <span class="in">`sample_size`</span> is generated, the test statistic is computed, then a decision to reject or not the null hypothesis is taken. For each trial, print:</span>
+<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>true type of the d6</span>
+<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>realization of the test statistic in this sample</span>
+<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>p-value of the realization of the test statistic assuming H0 is true</span>
+<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Decision (either <span class="in">`reject H0`</span> or <span class="in">`fail to reject H0`</span>)</span>
+<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Whether the decision was correct, a type I error, or a type II error</span>
 <span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Perform 'n_simulations' simulations with a rigged d6 and compute the frequency of type I errors.</span>
-<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Perform 'n_simulations' simulations with a fair d6 and compute the frequency of type II errors.</span>
-<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Give the empirical **power** of the test.</span>
-<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a>___</span>
-<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a>___</span>
-<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a>___</span>
-<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a><span class="fu">## 10141212816 Hypothesis testing — Mean vs Variance (OPTIONAL: vs log likelihood ratio)</span></span>
-<span id="cb5-151"><a href="#cb5-151" aria-hidden="true" tabindex="-1"></a>The goal of this exercise is to consider a different type of rigged d6 and different test statistics.</span>
-<span id="cb5-152"><a href="#cb5-152" aria-hidden="true" tabindex="-1"></a>The null hypothesis is H0: the d6 is fair, and the alternative hypothesis is H1: the d6 is rigged.</span>
-<span id="cb5-153"><a href="#cb5-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-156"><a href="#cb5-156" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb5-157"><a href="#cb5-157" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
-<span id="cb5-158"><a href="#cb5-158" aria-hidden="true" tabindex="-1"></a>random.seed(<span class="dv">10141212816</span>)</span>
+<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a>___</span>
+<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a><span class="fu">### From trials to simulations</span></span>
+<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Using the samples drawn previously, compute the frequency of type I errors.</span>
+<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Using the samples drawn previously, compute the frequency of type II errors.</span>
+<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Give the empirical **power** of the test.</span>
+<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-151"><a href="#cb5-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-152"><a href="#cb5-152" aria-hidden="true" tabindex="-1"></a>___</span>
+<span id="cb5-153"><a href="#cb5-153" aria-hidden="true" tabindex="-1"></a>___</span>
+<span id="cb5-154"><a href="#cb5-154" aria-hidden="true" tabindex="-1"></a>___</span>
+<span id="cb5-155"><a href="#cb5-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-156"><a href="#cb5-156" aria-hidden="true" tabindex="-1"></a><span class="fu">## 16610101020 Hypothesis testing — Mean vs Variance (OPTIONAL: vs log likelihood ratio)</span></span>
+<span id="cb5-157"><a href="#cb5-157" aria-hidden="true" tabindex="-1"></a>The goal of this exercise is to consider a different type of rigged d6 and different test statistics.</span>
+<span id="cb5-158"><a href="#cb5-158" aria-hidden="true" tabindex="-1"></a>The null hypothesis is H0: the d6 is fair, and the alternative hypothesis is H1: the d6 is rigged.</span>
 <span id="cb5-159"><a href="#cb5-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-160"><a href="#cb5-160" aria-hidden="true" tabindex="-1"></a>n_simulations <span class="op">=</span> <span class="dv">3000</span></span>
-<span id="cb5-161"><a href="#cb5-161" aria-hidden="true" tabindex="-1"></a>alpha <span class="op">=</span> <span class="fl">0.10</span></span>
-<span id="cb5-162"><a href="#cb5-162" aria-hidden="true" tabindex="-1"></a>sample_size <span class="op">=</span> <span class="dv">50</span></span>
-<span id="cb5-163"><a href="#cb5-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-164"><a href="#cb5-164" aria-hidden="true" tabindex="-1"></a>interval_widths_fair <span class="op">=</span> [<span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">12</span>]</span>
-<span id="cb5-165"><a href="#cb5-165" aria-hidden="true" tabindex="-1"></a>interval_widths_rigged <span class="op">=</span> [<span class="dv">14</span>, <span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">8</span>, <span class="dv">16</span>]</span>
-<span id="cb5-166"><a href="#cb5-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-167"><a href="#cb5-167" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> jitter(x, scale):</span>
-<span id="cb5-168"><a href="#cb5-168" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">+</span> random.uniform(<span class="op">-</span>scale, scale)</span>
-<span id="cb5-169"><a href="#cb5-169" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-170"><a href="#cb5-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-171"><a href="#cb5-171" aria-hidden="true" tabindex="-1"></a>Apply a small **jitter** (<span class="in">`1e-6`</span>) whenever you compute a test statistic. The jitter ensures that no two samples have exactly the same value of the test statistic. </span>
+<span id="cb5-162"><a href="#cb5-162" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb5-163"><a href="#cb5-163" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb5-164"><a href="#cb5-164" aria-hidden="true" tabindex="-1"></a>random.seed(<span class="dv">16610101020</span>)</span>
+<span id="cb5-165"><a href="#cb5-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-166"><a href="#cb5-166" aria-hidden="true" tabindex="-1"></a>n_simulations <span class="op">=</span> <span class="dv">3000</span></span>
+<span id="cb5-167"><a href="#cb5-167" aria-hidden="true" tabindex="-1"></a>alpha <span class="op">=</span> <span class="fl">0.10</span></span>
+<span id="cb5-168"><a href="#cb5-168" aria-hidden="true" tabindex="-1"></a>sample_size <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb5-169"><a href="#cb5-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-170"><a href="#cb5-170" aria-hidden="true" tabindex="-1"></a>interval_widths_fair <span class="op">=</span> [<span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">12</span>]</span>
+<span id="cb5-171"><a href="#cb5-171" aria-hidden="true" tabindex="-1"></a>interval_widths_rigged <span class="op">=</span> [<span class="dv">16</span>, <span class="dv">6</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">20</span>]</span>
 <span id="cb5-172"><a href="#cb5-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-173"><a href="#cb5-173" aria-hidden="true" tabindex="-1"></a>Follow the hypothesis testing procedure. First, use the **sample mean** as the test statistic (as in the lecture notes).</span>
-<span id="cb5-174"><a href="#cb5-174" aria-hidden="true" tabindex="-1"></a>Then, repeat the procedure, with a different test statistic: the **sample variance**.</span>
-<span id="cb5-175"><a href="#cb5-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-173"><a href="#cb5-173" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> jitter(x, scale):</span>
+<span id="cb5-174"><a href="#cb5-174" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">+</span> random.uniform(<span class="op">-</span>scale, scale)</span>
+<span id="cb5-175"><a href="#cb5-175" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb5-176"><a href="#cb5-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-177"><a href="#cb5-177" aria-hidden="true" tabindex="-1"></a>**OPTIONAL**: repeat the procedure with yet another test statistic: the **log-likelihood ratio**.</span>
+<span id="cb5-177"><a href="#cb5-177" aria-hidden="true" tabindex="-1"></a>Apply a small **jitter** (<span class="in">`1e-6`</span>) whenever you compute a test statistic. The jitter ensures that no two samples have exactly the same value of the test statistic. </span>
 <span id="cb5-178"><a href="#cb5-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-179"><a href="#cb5-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-180"><a href="#cb5-180" aria-hidden="true" tabindex="-1"></a>**Remark**: don't generate different samples each time, you can simply compute multiple test statistics on the same samples.</span>
+<span id="cb5-179"><a href="#cb5-179" aria-hidden="true" tabindex="-1"></a>Follow the hypothesis testing procedure outlined below, using the **sample mean** as the test statistic (as in the lecture notes).</span>
+<span id="cb5-180"><a href="#cb5-180" aria-hidden="true" tabindex="-1"></a>Then, repeat the procedure, with a different test statistic: the **sample variance**. **OPTIONAL**: repeat the procedure with yet another test statistic: the **log-likelihood ratio**.</span>
 <span id="cb5-181"><a href="#cb5-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-182"><a href="#cb5-182" aria-hidden="true" tabindex="-1"></a>At the end, construct a dataframe with one row per test statistic, and with colums for:</span>
-<span id="cb5-183"><a href="#cb5-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-184"><a href="#cb5-184" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>decision rule (cutoff)</span>
-<span id="cb5-185"><a href="#cb5-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-186"><a href="#cb5-186" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>frequency of type I errors (empirical alpha)</span>
-<span id="cb5-187"><a href="#cb5-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-188"><a href="#cb5-188" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>frequency of type II errors </span>
-<span id="cb5-189"><a href="#cb5-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-190"><a href="#cb5-190" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>empirical power of the test statistic</span>
-<span id="cb5-191"><a href="#cb5-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-182"><a href="#cb5-182" aria-hidden="true" tabindex="-1"></a>**Remark**: you can compute multiple test statistics on the same sample, rather than draw new samples when you change the test statistic.</span>
+<span id="cb5-183"><a href="#cb5-183" aria-hidden="true" tabindex="-1"></a>At the end, construct a dataframe with one row per test statistic, and with columns for:</span>
+<span id="cb5-184"><a href="#cb5-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-185"><a href="#cb5-185" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>decision rule (cutoff)</span>
+<span id="cb5-186"><a href="#cb5-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-187"><a href="#cb5-187" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>frequency of type I errors (empirical alpha)</span>
+<span id="cb5-188"><a href="#cb5-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-189"><a href="#cb5-189" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>frequency of type II errors </span>
+<span id="cb5-190"><a href="#cb5-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-191"><a href="#cb5-191" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>empirical power of the test statistic</span>
 <span id="cb5-192"><a href="#cb5-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-193"><a href="#cb5-193" aria-hidden="true" tabindex="-1"></a>Sort the dataframe by decreasing empirical power and print the dataframe.</span>
-<span id="cb5-194"><a href="#cb5-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-195"><a href="#cb5-195" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Hypothesis testing procedure"} </span>
-<span id="cb5-196"><a href="#cb5-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-197"><a href="#cb5-197" aria-hidden="true" tabindex="-1"></a><span class="fu">### Distribution of the test statistic and decision rule.</span></span>
-<span id="cb5-198"><a href="#cb5-198" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Perform 'n_simulations' simulations to generate the distribution of the test statistic assuming H0. </span>
+<span id="cb5-193"><a href="#cb5-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-194"><a href="#cb5-194" aria-hidden="true" tabindex="-1"></a>Sort the dataframe by decreasing empirical power and print the dataframe.</span>
+<span id="cb5-195"><a href="#cb5-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-196"><a href="#cb5-196" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Hypothesis testing procedure"} </span>
+<span id="cb5-197"><a href="#cb5-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-198"><a href="#cb5-198" aria-hidden="true" tabindex="-1"></a><span class="fu">### Distribution of the test statistic and decision rule.</span></span>
 <span id="cb5-199"><a href="#cb5-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-200"><a href="#cb5-200" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Display the test statistic under H0 as a histogram.</span>
+<span id="cb5-200"><a href="#cb5-200" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Draw <span class="in">`n_simulations`</span> samples assuming H0 and compute the test statistic for each sample. </span>
 <span id="cb5-201"><a href="#cb5-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-202"><a href="#cb5-202" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Perform 'n_simulations' simulations to generate the distribution of the test statistic assuming H1. </span>
+<span id="cb5-202"><a href="#cb5-202" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Display the distribution of the test statistic under H0 as a histogram.</span>
 <span id="cb5-203"><a href="#cb5-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-204"><a href="#cb5-204" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Display the test statistic under H1 as a histogram on the same graph.</span>
+<span id="cb5-204"><a href="#cb5-204" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Draw <span class="in">`n_simulations`</span> samples assuming H1 and compute the test statistic for each sample.</span>
 <span id="cb5-205"><a href="#cb5-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-206"><a href="#cb5-206" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Choose the decision rule such that type I errors occur with probability <span class="in">`alpha`</span> when H0 is true.</span>
+<span id="cb5-206"><a href="#cb5-206" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Display the distribution of the test statistic under H1 as a histogram **on the same graph**.</span>
 <span id="cb5-207"><a href="#cb5-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-208"><a href="#cb5-208" aria-hidden="true" tabindex="-1"></a>___</span>
-<span id="cb5-209"><a href="#cb5-209" aria-hidden="true" tabindex="-1"></a><span class="fu">### 30 trials of testing a d6 of unknown type.</span></span>
-<span id="cb5-210"><a href="#cb5-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-211"><a href="#cb5-211" aria-hidden="true" tabindex="-1"></a>Perform 30 "trials": in each trial, the type of d6 is chosen randomly (chosen to be fair or rigged with equal probability), then a sample of size <span class="in">`sample_size`</span> is generated, the test statistic is computed, then a decision to reject or not the null hypothesis is taken. For each trial, print:</span>
+<span id="cb5-208"><a href="#cb5-208" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Choose the decision rule (the rejection region) such that when H0 is true, type I errors occur with probability <span class="in">`alpha`</span>.</span>
+<span id="cb5-209"><a href="#cb5-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-210"><a href="#cb5-210" aria-hidden="true" tabindex="-1"></a>___</span>
+<span id="cb5-211"><a href="#cb5-211" aria-hidden="true" tabindex="-1"></a><span class="fu">### From trials to simulations</span></span>
 <span id="cb5-212"><a href="#cb5-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-213"><a href="#cb5-213" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>true type of the d6</span>
+<span id="cb5-213"><a href="#cb5-213" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Using the fair d6 samples drawn previously, compute the frequency of type I errors.</span>
 <span id="cb5-214"><a href="#cb5-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-215"><a href="#cb5-215" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>realization of the test statistic</span>
+<span id="cb5-215"><a href="#cb5-215" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Using the rigged d6 samples drawn previously, compute the frequency of type II errors.</span>
 <span id="cb5-216"><a href="#cb5-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-217"><a href="#cb5-217" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>p-value of the test statistic assuming H0 is true</span>
-<span id="cb5-218"><a href="#cb5-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-219"><a href="#cb5-219" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Decision (reject or fail to reject H0)</span>
-<span id="cb5-220"><a href="#cb5-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-221"><a href="#cb5-221" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Whether the decision was correct, a type I error, or a type II error.</span>
+<span id="cb5-217"><a href="#cb5-217" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Give the empirical **power** of the test.</span>
+<span id="cb5-218"><a href="#cb5-218" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-219"><a href="#cb5-219" aria-hidden="true" tabindex="-1"></a>___</span>
+<span id="cb5-220"><a href="#cb5-220" aria-hidden="true" tabindex="-1"></a>___</span>
+<span id="cb5-221"><a href="#cb5-221" aria-hidden="true" tabindex="-1"></a>___</span>
 <span id="cb5-222"><a href="#cb5-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-223"><a href="#cb5-223" aria-hidden="true" tabindex="-1"></a>___</span>
-<span id="cb5-224"><a href="#cb5-224" aria-hidden="true" tabindex="-1"></a><span class="fu">### From trials to simulations</span></span>
+<span id="cb5-223"><a href="#cb5-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-224"><a href="#cb5-224" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exercise 1200110030 — Pooled virus testing</span></span>
 <span id="cb5-225"><a href="#cb5-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-226"><a href="#cb5-226" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Perform 'n_simulations' simulations with a fair d6 and compute the frequency of type I errors.</span>
-<span id="cb5-227"><a href="#cb5-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-228"><a href="#cb5-228" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Perform 'n_simulations' simulations with a rigged d6 and compute the frequency of type II errors.</span>
+<span id="cb5-226"><a href="#cb5-226" aria-hidden="true" tabindex="-1"></a>*Source:* Cyganowski, S., Kloeden, P. E., and Ombach, J. (2002),</span>
+<span id="cb5-227"><a href="#cb5-227" aria-hidden="true" tabindex="-1"></a>*From Elementary Probability to Stochastic Differential Equations with Maple*,</span>
+<span id="cb5-228"><a href="#cb5-228" aria-hidden="true" tabindex="-1"></a>Springer.</span>
 <span id="cb5-229"><a href="#cb5-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-230"><a href="#cb5-230" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Give the empirical **power** of the test.</span>
-<span id="cb5-231"><a href="#cb5-231" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb5-232"><a href="#cb5-232" aria-hidden="true" tabindex="-1"></a>___</span>
-<span id="cb5-233"><a href="#cb5-233" aria-hidden="true" tabindex="-1"></a>___</span>
-<span id="cb5-234"><a href="#cb5-234" aria-hidden="true" tabindex="-1"></a>___</span>
-<span id="cb5-235"><a href="#cb5-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-230"><a href="#cb5-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-233"><a href="#cb5-233" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb5-234"><a href="#cb5-234" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb5-235"><a href="#cb5-235" aria-hidden="true" tabindex="-1"></a>random.seed(<span class="dv">1200110030</span>)</span>
 <span id="cb5-236"><a href="#cb5-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-237"><a href="#cb5-237" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exercise 1200110030 — Pooled virus testing</span></span>
-<span id="cb5-238"><a href="#cb5-238" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-239"><a href="#cb5-239" aria-hidden="true" tabindex="-1"></a>*Source:* Cyganowski, S., Kloeden, P. E., and Ombach, J. (2002),</span>
-<span id="cb5-240"><a href="#cb5-240" aria-hidden="true" tabindex="-1"></a>*From Elementary Probability to Stochastic Differential Equations with Maple*,</span>
-<span id="cb5-241"><a href="#cb5-241" aria-hidden="true" tabindex="-1"></a>Springer.</span>
-<span id="cb5-242"><a href="#cb5-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-237"><a href="#cb5-237" aria-hidden="true" tabindex="-1"></a>n_simulations <span class="op">=</span> <span class="dv">1400</span></span>
+<span id="cb5-238"><a href="#cb5-238" aria-hidden="true" tabindex="-1"></a>p_infected <span class="op">=</span> <span class="fl">0.01</span></span>
+<span id="cb5-239"><a href="#cb5-239" aria-hidden="true" tabindex="-1"></a>n_population<span class="op">=</span><span class="dv">1200</span></span>
+<span id="cb5-240"><a href="#cb5-240" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-241"><a href="#cb5-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-242"><a href="#cb5-242" aria-hidden="true" tabindex="-1"></a>A population of <span class="in">`n_population`</span> individuals is screened for a rare virus. The probability that a given individual is infected is <span class="in">`p_infection`</span>, independent across individuals. The testing procedure is excellent (no false positives or false negatives), but expensive, so in an effort to reduce costs, the testing center practices pooled testing:</span>
 <span id="cb5-243"><a href="#cb5-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-246"><a href="#cb5-246" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb5-247"><a href="#cb5-247" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
-<span id="cb5-248"><a href="#cb5-248" aria-hidden="true" tabindex="-1"></a>random.seed(<span class="dv">1200110030</span>)</span>
+<span id="cb5-244"><a href="#cb5-244" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>divide the population into groups of 30 individuals (pools).</span>
+<span id="cb5-245"><a href="#cb5-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-246"><a href="#cb5-246" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>take half the blood sample (5mL out of 10mL) of every individual within a group and mix them together.</span>
+<span id="cb5-247"><a href="#cb5-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-248"><a href="#cb5-248" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>test the mixed blood</span>
 <span id="cb5-249"><a href="#cb5-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-250"><a href="#cb5-250" aria-hidden="true" tabindex="-1"></a>n_simulations <span class="op">=</span> <span class="dv">1400</span></span>
-<span id="cb5-251"><a href="#cb5-251" aria-hidden="true" tabindex="-1"></a>p_infected <span class="op">=</span> <span class="fl">0.01</span></span>
-<span id="cb5-252"><a href="#cb5-252" aria-hidden="true" tabindex="-1"></a>n_population<span class="op">=</span><span class="dv">1200</span></span>
-<span id="cb5-253"><a href="#cb5-253" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-250"><a href="#cb5-250" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>if the mixed blood test is negative, the group is "clean".</span>
+<span id="cb5-251"><a href="#cb5-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-252"><a href="#cb5-252" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>if the mixed blood test is positive, test separately and individually the remaining 5mL of blood from every individual in the group.</span>
+<span id="cb5-253"><a href="#cb5-253" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-254"><a href="#cb5-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-255"><a href="#cb5-255" aria-hidden="true" tabindex="-1"></a>A population of <span class="in">`n_population`</span> individuals is screened for a rare virus. The probability that a given individual is infected is <span class="in">`p_infection`</span>, independent across individuals. The testing procedure is excellent (no false positives or false negatives), but expensive, so in an effort to reduce costs, the testing center practices pooled testing:</span>
-<span id="cb5-256"><a href="#cb5-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-257"><a href="#cb5-257" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>divide the population into groups of 30 individuals (pools).</span>
-<span id="cb5-258"><a href="#cb5-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-259"><a href="#cb5-259" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>take half the blood sample (5mL out of 10mL) of every individual within a group and mix them together.</span>
-<span id="cb5-260"><a href="#cb5-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-261"><a href="#cb5-261" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>test the mixed blood</span>
-<span id="cb5-262"><a href="#cb5-262" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-263"><a href="#cb5-263" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>if the mixed blood test is negative, the group is "clean".</span>
-<span id="cb5-264"><a href="#cb5-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-265"><a href="#cb5-265" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>if the mixed blood test is positive, test separately and individually the remaining 5mL of blood from every individual in the group.</span>
-<span id="cb5-266"><a href="#cb5-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-255"><a href="#cb5-255" aria-hidden="true" tabindex="-1"></a><span class="fu">### One simulation of one testing campaign.</span></span>
+<span id="cb5-256"><a href="#cb5-256" aria-hidden="true" tabindex="-1"></a>Simulate one testing campaign: generate a sample with <span class="in">`n_population`</span> individuals, each with a status (<span class="in">`is_infected=True`</span> or <span class="in">`is_infected=False`</span>) generated randomly using probability <span class="in">`p_infected`</span>, and assume that individuals 0 through 29 form one group, then individuals 30 through 59 another group, etc.</span>
+<span id="cb5-257"><a href="#cb5-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-258"><a href="#cb5-258" aria-hidden="true" tabindex="-1"></a>Print:</span>
+<span id="cb5-259"><a href="#cb5-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-260"><a href="#cb5-260" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the number of clean groups (tests performed of mixed blood which were negative)</span>
+<span id="cb5-261"><a href="#cb5-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-262"><a href="#cb5-262" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the number of groups with at least one infected individual (tests performed of mixed blood which were positive)</span>
+<span id="cb5-263"><a href="#cb5-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-264"><a href="#cb5-264" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the total number of group tests performed</span>
+<span id="cb5-265"><a href="#cb5-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-266"><a href="#cb5-266" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the total number of individual tests performed</span>
 <span id="cb5-267"><a href="#cb5-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-268"><a href="#cb5-268" aria-hidden="true" tabindex="-1"></a><span class="fu">### One simulation of one testing campaign.</span></span>
-<span id="cb5-269"><a href="#cb5-269" aria-hidden="true" tabindex="-1"></a>Simulate one testing campaign: generate a sample with <span class="in">`n_population`</span> individuals, each with a status (<span class="in">`is_infected=True`</span> or <span class="in">`is_infected=False`</span>) generated randomly using probability <span class="in">`p_infected`</span>, and assume that individuals 0 through 29 form one group, then individuals 30 through 59 another group, etc.</span>
-<span id="cb5-270"><a href="#cb5-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-271"><a href="#cb5-271" aria-hidden="true" tabindex="-1"></a>Print:</span>
-<span id="cb5-272"><a href="#cb5-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-273"><a href="#cb5-273" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the number of clean groups (tests performed of mixed blood which were negative)</span>
-<span id="cb5-274"><a href="#cb5-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-275"><a href="#cb5-275" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the number of groups with at least one infected individual (tests performed of mixed blood which were positive)</span>
-<span id="cb5-276"><a href="#cb5-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-277"><a href="#cb5-277" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the total number of group tests performed</span>
-<span id="cb5-278"><a href="#cb5-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-279"><a href="#cb5-279" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the total number of individual tests performed</span>
-<span id="cb5-280"><a href="#cb5-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-281"><a href="#cb5-281" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the total number of tests performed</span>
-<span id="cb5-282"><a href="#cb5-282" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-283"><a href="#cb5-283" aria-hidden="true" tabindex="-1"></a>___</span>
-<span id="cb5-284"><a href="#cb5-284" aria-hidden="true" tabindex="-1"></a><span class="fu">### Multiple simulations</span></span>
-<span id="cb5-285"><a href="#cb5-285" aria-hidden="true" tabindex="-1"></a>Simulate a testing campaign <span class="in">`n_simulations`</span> times: in each simulation, generate a new sample, then conduct the testing campaign. For each simulation, store the **total number of tests** performed.</span>
-<span id="cb5-286"><a href="#cb5-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-287"><a href="#cb5-287" aria-hidden="true" tabindex="-1"></a>Print descriptive statistics on the **total number of tests**:</span>
+<span id="cb5-268"><a href="#cb5-268" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the total number of tests performed</span>
+<span id="cb5-269"><a href="#cb5-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-270"><a href="#cb5-270" aria-hidden="true" tabindex="-1"></a>___</span>
+<span id="cb5-271"><a href="#cb5-271" aria-hidden="true" tabindex="-1"></a><span class="fu">### Multiple simulations</span></span>
+<span id="cb5-272"><a href="#cb5-272" aria-hidden="true" tabindex="-1"></a>Simulate a testing campaign <span class="in">`n_simulations`</span> times: in each simulation, generate a new sample, then conduct the testing campaign. For each simulation, store the **total number of tests** performed.</span>
+<span id="cb5-273"><a href="#cb5-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-274"><a href="#cb5-274" aria-hidden="true" tabindex="-1"></a>Print descriptive statistics on the **total number of tests**:</span>
+<span id="cb5-275"><a href="#cb5-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-276"><a href="#cb5-276" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>average</span>
+<span id="cb5-277"><a href="#cb5-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-278"><a href="#cb5-278" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>minimum</span>
+<span id="cb5-279"><a href="#cb5-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-280"><a href="#cb5-280" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>25th percentile</span>
+<span id="cb5-281"><a href="#cb5-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-282"><a href="#cb5-282" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>median</span>
+<span id="cb5-283"><a href="#cb5-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-284"><a href="#cb5-284" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>75th percentile</span>
+<span id="cb5-285"><a href="#cb5-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-286"><a href="#cb5-286" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>maximum</span>
+<span id="cb5-287"><a href="#cb5-287" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-288"><a href="#cb5-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-289"><a href="#cb5-289" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>average</span>
-<span id="cb5-290"><a href="#cb5-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-291"><a href="#cb5-291" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>minimum</span>
-<span id="cb5-292"><a href="#cb5-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-293"><a href="#cb5-293" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>25th percentile</span>
+<span id="cb5-289"><a href="#cb5-289" aria-hidden="true" tabindex="-1"></a>___</span>
+<span id="cb5-290"><a href="#cb5-290" aria-hidden="true" tabindex="-1"></a><span class="fu">### Choosing the group size optimally</span></span>
+<span id="cb5-291"><a href="#cb5-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-292"><a href="#cb5-292" aria-hidden="true" tabindex="-1"></a>We are interested in whether dividing the population into groups of 30 is optimal, or whether a different number would reduce the expected cost of testing the entire population. We want to simulate testing campaigns assuming different group sizes:</span>
+<span id="cb5-293"><a href="#cb5-293" aria-hidden="true" tabindex="-1"></a>2, 6, 8, 10, 12, 14, 16, 20, 25, 32, 40, 48.</span>
 <span id="cb5-294"><a href="#cb5-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-295"><a href="#cb5-295" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>median</span>
+<span id="cb5-295"><a href="#cb5-295" aria-hidden="true" tabindex="-1"></a>For each possible group size, simulate the testing campaign <span class="in">`n_simulations`</span> times.</span>
 <span id="cb5-296"><a href="#cb5-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-297"><a href="#cb5-297" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>75th percentile</span>
+<span id="cb5-297"><a href="#cb5-297" aria-hidden="true" tabindex="-1"></a>Construct a dataframe where each row is a group size, and different columns display:</span>
 <span id="cb5-298"><a href="#cb5-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-299"><a href="#cb5-299" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>maximum</span>
+<span id="cb5-299"><a href="#cb5-299" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the minimum number of tests across simulations</span>
 <span id="cb5-300"><a href="#cb5-300" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-301"><a href="#cb5-301" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-302"><a href="#cb5-302" aria-hidden="true" tabindex="-1"></a>___</span>
-<span id="cb5-303"><a href="#cb5-303" aria-hidden="true" tabindex="-1"></a><span class="fu">### Choosing the group size optimally</span></span>
+<span id="cb5-301"><a href="#cb5-301" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the average number of tests across simulations</span>
+<span id="cb5-302"><a href="#cb5-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-303"><a href="#cb5-303" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the maximum number of tests across simulations</span>
 <span id="cb5-304"><a href="#cb5-304" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-305"><a href="#cb5-305" aria-hidden="true" tabindex="-1"></a>We are interested in whether dividing the population into groups of 30 is optimal, or whether a different number would reduce the expected cost of testing the entire population. We want to simulate testing campaigns assuming different group sizes:</span>
-<span id="cb5-306"><a href="#cb5-306" aria-hidden="true" tabindex="-1"></a>2, 6, 8, 10, 12, 14, 16, 20, 25, 32, 40, 48.</span>
-<span id="cb5-307"><a href="#cb5-307" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-308"><a href="#cb5-308" aria-hidden="true" tabindex="-1"></a>For each possible group size, simulate the testing campaign <span class="in">`n_simulations`</span> times.</span>
-<span id="cb5-309"><a href="#cb5-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-310"><a href="#cb5-310" aria-hidden="true" tabindex="-1"></a>Construct a dataframe where each row is a group size, and different columns display:</span>
-<span id="cb5-311"><a href="#cb5-311" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-312"><a href="#cb5-312" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the minimum number of tests across simulations</span>
-<span id="cb5-313"><a href="#cb5-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-314"><a href="#cb5-314" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the average number of tests across simulations</span>
-<span id="cb5-315"><a href="#cb5-315" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-316"><a href="#cb5-316" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the maximum number of tests across simulations</span>
-<span id="cb5-317"><a href="#cb5-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-318"><a href="#cb5-318" aria-hidden="true" tabindex="-1"></a>Print the group size with the **lowest average number of tests**.</span>
-<span id="cb5-319"><a href="#cb5-319" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-320"><a href="#cb5-320" aria-hidden="true" tabindex="-1"></a>**OPTIONAL**: run the code again with a lower probability of infection <span class="in">`p_infected = 0.005`</span>. How does the optimal group size change?</span>
+<span id="cb5-305"><a href="#cb5-305" aria-hidden="true" tabindex="-1"></a>Print the group size with the **lowest average number of tests**.</span>
+<span id="cb5-306"><a href="#cb5-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-307"><a href="#cb5-307" aria-hidden="true" tabindex="-1"></a>**OPTIONAL**: run the code again with a lower probability of infection <span class="in">`p_infected = 0.005`</span>. How does the optimal group size change?</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
